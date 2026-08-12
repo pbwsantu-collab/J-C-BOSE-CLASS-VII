@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9: J.C. Bose - A Beautiful Mind (Interactive Reader)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --primary-dark: #357ABD;
+            --secondary: #FF6B6B;
+            --accent: #FFD166;
+            --success: #06D6A0;
+            --bg-grad-1: #E0C3FC;
+            --bg-grad-2: #8EC5FC;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #2C3E50;
+            --text-muted: #6C7A89;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, var(--bg-grad-2) 0%, var(--bg-grad-1) 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .instruction-banner {
+            background: var(--accent);
+            color: #4A3B00;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            animation: pulse 2s infinite;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        h2.unit-title {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        h3.section-subtitle {
+            color: var(--primary-dark);
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .passage-text p {
+            margin-bottom: 15px;
+            font-size: 1.08rem;
+            text-align: justify;
+        }
+
+        /* Interactive Words Styling */
+        .w {
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-bottom: 2px dashed var(--primary);
+            cursor: pointer;
+            padding: 0 2px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .w:hover {
+            background-color: rgba(74, 144, 226, 0.2);
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        /* Word Nest Box */
+        .word-nest {
+            background: #EBF5FF;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 15px 15px 0;
+            margin: 25px 0;
+        }
+
+        .word-nest h4 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Activities Section */
+        .activity-card {
+            background: #FFF9E6;
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .activity-title {
+            font-weight: 700;
+            color: #B7791F;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .btn-answer {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-answer:hover {
+            background: var(--primary-dark);
+        }
+
+        .answer-box {
+            display: none;
+            background: #E6FFFA;
+            border: 1px solid var(--success);
+            color: #234E52;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .answer-box.show {
+            display: block;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+        }
+
+        .modal-word {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: var(--bg-grad-1);
+            color: #5A2A82;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .modal-detail-item {
+            margin: 10px 0;
+            text-align: left;
+            background: #F7FAFC;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .modal-detail-item label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-detail-item span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .modal-detail-item span.bn-text {
+            font-family: 'Hind Siliguri', sans-serif;
+            color: var(--secondary);
+        }
+
+        /* Responsive Table */
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 12px 15px;
+            border: 1px solid #E2E8F0;
+            text-align: left;
+        }
+
+        .custom-table th {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Lesson 9: J.C. Bose: A Beautiful Mind</h1>
+        <p>Interactive Study Companion with English-Bengali Dictionary & Solved Activities</p>
+    </header>
+
+    <div class="instruction-banner">
+        💡 Tap/Click any highlighted word to see its Bengali Meaning, Pronunciation & Part of Speech!
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="section-card">
+        <h3 class="section-subtitle">Let's start :</h3>
+        <div class="passage-text">
+            <p>
+                A <span class="w">biography</span> is the life story of someone, usually <span class="w">eminent</span>. The person may be <span class="w">alive</span> or dead. Biographies are always written by somebody other than the person himself. We read biographies of eminent persons so that we may <span class="w">learn</span> about them and try to be like them.
+            </p>
+        </div>
+
+        <h3 class="section-subtitle">Let's share :</h3>
+        <ul style="margin-left: 20px; margin-bottom: 15px;">
+            <li>Can you name any <span class="w">eminent</span> person of your district?</li>
+            <li>Who is this person in the picture?</li>
+            <li>Do you know anything about him?</li>
+        </ul>
+    </div>
+
+    <!-- UNIT I -->
+    <div class="section-card">
+        <h2 class="unit-title">Unit I</h2>
+        <h3 class="section-subtitle">Let's read :</h3>
+        <div class="passage-text">
+            <p>
+                Historically, in 1895, India was under the British <span class="w">rule</span>. A different history was made that year at the Town Hall in Calcutta. An interesting <span class="w">demonstration</span> was <span class="w">performed</span> by Jagadish Chandra Bose, an Assistant Professor of Presidency College. Everyone was <span class="w">overawed</span> when the electro-magnetic waves <span class="w">travelled</span> from the Lecture Hall to a third room about 75 metres away. These waves passed through three solid walls. This was a <span class="w">remarkable</span> and path-breaking <span class="w">incident</span> which <span class="w">paved</span> the way for future research all over the world.
+            </p>
+            <p>
+                Born on 30th November 1858 at Bikrampur (now Munshiganj district of Bangladesh), Jagadish Chandra Bose was a man of <span class="w">diverse</span> talents: a <span class="w">physicist</span>, <span class="w">biologist</span>, <span class="w">botanist</span> as well as a writer of science-fiction. His father, Bhagwan Chandra Bose, was a leader of the Brahmo Samaj. He worked as a Deputy Magistrate in Faridpur, Burdwan and in other places. Jagadish Chandra’s education started in a Vernacular school because his father believed that one must know one’s mother tongue before learning any other language. Besides, one should know one’s own people. Speaking at the Bikrampur Conference in 1915, Bose said:
+            </p>
+            <p style="background: #F8FAFC; padding: 15px; border-left: 4px solid var(--primary); font-style: italic;">
+                “At that time, sending children to English schools was a <span class="w">privileged</span> status symbol. In the vernacular school, to which I was sent, the son of the Muslim <span class="w">attendant</span> of my father sat on my right side, and the son of a fisherman sat on my left. They were my playmates. I listened <span class="w">spellbound</span> to their stories of birds, animals and <span class="w">aquatic</span> creatures. Perhaps these stories created in my mind a keen interest in <span class="w">investigating</span> the workings of Nature. When I returned home from school accompanied by my school fellows, my mother welcomed and fed all of us without <span class="w">discrimination</span>. It was because of my childhood friendship with them that I could never feel that there were ‘creatures’ who might be labelled ‘low-caste’. I never realized that there existed a ‘problem’ common to the two communities, Hindus and Muslims.”
+            </p>
+            <p>
+                In 1869, Bose joined Hare School and six years later he was admitted to St. Xavier’s School in Calcutta. He passed the Entrance Examination and joined St. Xavier’s College of Calcutta. It was here that he came in contact with Jesuit Father Eugene Lafont who played a significant role in developing his interest in natural science. Later, Bose went to England and secured admission in Christ College, Cambridge, to study Natural Science. In 1884, he received the Natural Science Tripos from the University of Cambridge and a B. Sc. degree from the University of London.
+            </p>
+            <p>
+                The following year, Bose joined Presidency College as <span class="w">officiating</span> Professor of Physics. But he was not provided facilities of research. He was also offered lower salary than his European colleagues. Bose had a remarkable sense of self-respect and national pride. Therefore, as a sign of protest, he continued his teaching assignment for three years without accepting his salary. Finally, the Director of Public Instruction and the Principal offered him a permanent teaching post.
+            </p>
+        </div>
+
+        <div class="word-nest">
+            <h4>Word Nest</h4>
+            <ul>
+                <li><span class="w">demonstration</span>: an activity that shows and explains how something works</li>
+                <li><span class="w">overawed</span>: impressed</li>
+                <li><span class="w">paved</span>: created a situation in which something can happen</li>
+                <li><span class="w">diverse</span>: of various kinds</li>
+                <li><span class="w">spellbound</span>: attention completely held by what the person is listening to and watching</li>
+                <li><span class="w">discrimination</span>: practice of treating somebody less fairly than others</li>
+            </ul>
+        </div>
+
+        <!-- Activity 1 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 1: Choose the correct answer from the given options</div>
+            <p>(a) Jagadish Chandra Bose studied in— (i) Hindu School (ii) Hare School (iii) Ballygunge Government School.</p>
+            <p>(b) Bose met Father Lafont at— (i) Cambridge (ii) London (iii) St. Xavier’s College</p>
+            <p>(c) Bose graduated in B.Sc. from — (i) University of Cambridge (ii) University of Oxford (iii) University of London</p>
+            
+            <button class="btn-answer" onclick="toggleAnswer('ans1')">👁️ Show Answers</button>
+            <div id="ans1" class="answer-box">
+                <p><strong>(a)</strong> (ii) Hare School</p>
+                <p><strong>(b)</strong> (iii) St. Xavier’s College</p>
+                <p><strong>(c)</strong> (iii) University of London</p>
+            </div>
+        </div>
+
+        <!-- Activity 2 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 2: Fill in the chart with information from the text</div>
+            <table class="custom-table">
+                <tr><th>Year</th><th>Event</th></tr>
+                <tr><td>1858</td><td>J.C. Bose was born</td></tr>
+                <tr><td>1869</td><td>Joined Hare School</td></tr>
+                <tr><td>1875</td><td>Joined St. Xavier's School / College</td></tr>
+                <tr><td>1884</td><td>Received Natural Science Tripos (Cambridge) & B.Sc (London)</td></tr>
+                <tr><td>1885</td><td>Joined Presidency College</td></tr>
+                <tr><td>1895</td><td>Demonstration at Town Hall</td></tr>
+            </table>
+            <button class="btn-answer" onclick="toggleAnswer('ans2')">👁️ Verify Answers</button>
+            <div id="ans2" class="answer-box">
+                <p><strong>Missing Years & Events filled in table above!</strong></p>
+                <ul>
+                    <li><strong>1858:</strong> J.C. Bose was born (30th Nov)</li>
+                    <li><strong>1869:</strong> Joined Hare School</li>
+                    <li><strong>1875:</strong> Admitted to St. Xavier's School</li>
+                    <li><strong>1884:</strong> Received Natural Science Tripos & B.Sc. degree</li>
+                    <li><strong>1885:</strong> Joined Presidency College as officiating Professor</li>
+                    <li><strong>1895:</strong> Demonstration at Town Hall</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 3: Complete the following statements</div>
+            <p>(a) Bose’s father used to work as ________________________</p>
+            <p>(b) ________________________ was the leader of the Brahmo Samaj</p>
+            <p>(c) In his school days Bose’s playmates were ________________________</p>
+            <p>(d) Bose went to England to ________________________</p>
+
+            <button class="btn-answer" onclick="toggleAnswer('ans3')">👁️ Show Answers</button>
+            <div id="ans3" class="answer-box">
+                <p><strong>(a)</strong> a Deputy Magistrate in Faridpur, Burdwan and in other places.</p>
+                <p><strong>(b)</strong> Bhagwan Chandra Bose</p>
+                <p><strong>(c)</strong> the son of the Muslim attendant of his father and the son of a fisherman.</p>
+                <p><strong>(d)</strong> study Natural Science at Christ College, Cambridge.</p>
+            </div>
+        </div>
+
+        <!-- Activity 4 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 4: Answer the following questions</div>
+            <p>(a) Why did Jagadish Chandra Bose receive his early education in a Vernacular school?</p>
+            <p>(b) What did Bose’s mother do when he brought his friends home from school?</p>
+            <p>(c) Who was Lafont? How did he influence Bose?</p>
+            <p>(d) Why did Bose refuse to accept his salary?</p>
+
+            <button class="btn-answer" onclick="toggleAnswer('ans4')">👁️ Show Answers</button>
+            <div id="ans4" class="answer-box">
+                <p><strong>(a)</strong> Bose’s father believed that one must know one’s mother tongue before learning any other language, and that one should know one’s own people.</p>
+                <p><strong>(b)</strong> Bose's mother welcomed and fed all of his friends without any discrimination.</p>
+                <p><strong>(c)</strong> Father Eugene Lafont was a Jesuit Father at St. Xavier's College. He played a significant role in developing Bose's interest in natural science.</p>
+                <p><strong>(d)</strong> Bose was offered a lower salary than his European colleagues at Presidency College. As a sign of protest for his self-respect and national pride, he refused to accept his salary.</p>
+            </div>
+        </div>
+
+        <!-- Activity 5 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 5: Match single words with their expanded forms</div>
+            <button class="btn-answer" onclick="toggleAnswer('ans5')">👁️ Show Matched Pairs</button>
+            <div id="ans5" class="answer-box">
+                <ul>
+                    <li><span class="w">astronomy</span> ➔ study of stars and planets</li>
+                    <li><span class="w">library</span> ➔ a place where books are kept</li>
+                    <li><span class="w">garage</span> ➔ a place to keep cars</li>
+                    <li><span class="w">psychology</span> ➔ study of human mind</li>
+                    <li><span class="w">orchard</span> ➔ a garden of many fruit trees</li>
+                    <li><span class="w">cashier</span> ➔ a person who handles cash</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNIT II -->
+    <div class="section-card">
+        <h2 class="unit-title">Unit II</h2>
+        <h3 class="section-subtitle">Let's continue :</h3>
+        <div class="passage-text">
+            <p>
+                Bose had invented several <span class="w">sensitive</span> instruments. One of them is the <em>Crescograph</em> which is used to measure the growth rate of plants. Through his experiments Bose showed that plants behave in the same manner as human beings, although plants take longer to respond than animals. He proved that plants are sensitive to heat, cold, light, noise and other external stimuli, just like human beings. By injecting poison into a living plant Bose showed that they react in the same manner as we do.
+            </p>
+            <p>
+                Scientific research on electro-magnetic waves was <span class="w">initiated</span> by J.C. Bose in the late 19th century. It was the Italian scientist Marconi who got the patent for the invention of wireless telegraphy. But we must remember that Bose’s public demonstration in Calcutta along the same lines happened much earlier. Instead of looking for commercial benefit for his inventions, Bose made his inventions public in order to allow others to advance further along the lines of his research. However, Bose’s place in history has now been re-evaluated.
+            </p>
+            <p>
+                This great Indian scientist was eventually crowned with glory when he was awarded Knighthood by the British government in 1917. He was also conferred many other awards like ‘Fellow of the Royal Society’, ‘Companion of the Order of the Indian Empire’ etc. Needless to say, he is one of the greatest scientists ever born in our country.
+            </p>
+            <p>
+                Sir J.C. Bose wrote several books and published many research papers in leading science journals. Some of his famous books are <em>Response in the Living and the Non-living</em> (1902), <em>The Nervous Mechanism of Plants</em> (1926), <em>Major Mechanism of Plants</em> (1928) etc. In 1896, Bose wrote <em>Niruddesher Khoje</em>, a science fiction. In fact, he was the first writer of science fictions in Bangla.
+            </p>
+            <p>
+                In November 1917, Bose founded the ‘Bose Institute’ at his own house in Calcutta. He donated ‘Bose Institute’ to the nation for research on science. This great Indian scientist breathed his last on 23rd November, 1937.
+            </p>
+        </div>
+
+        <div class="word-nest">
+            <h4>Word Nest</h4>
+            <ul>
+                <li><span class="w">sensitive</span>: able to measure very small changes</li>
+                <li><span class="w">initiated</span>: set something in motion</li>
+                <li><span class="w">patency</span>: official right to be the only person to make use of an invention</li>
+            </ul>
+        </div>
+
+        <!-- Activity 6 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 6: Identify True/False with Supporting Statements</div>
+            <button class="btn-answer" onclick="toggleAnswer('ans6')">👁️ Show Solutions</button>
+            <div id="ans6" class="answer-box">
+                <p><strong>(a) Crescograph was invented by Marconi.</strong><br>
+                ➔ <strong>False</strong>. Supporting Statement: "Bose had invented several sensitive instruments. One of them is the Crescograph..."</p>
+                <p><strong>(b) Marconi got the patency right for wireless telegraphy.</strong><br>
+                ➔ <strong>True</strong>. Supporting Statement: "It was the Italian scientist Marconi who got the patent for the invention of wireless telegraphy."</p>
+                <p><strong>(c) Bose was awarded Knighthood in 1919.</strong><br>
+                ➔ <strong>False</strong>. Supporting Statement: "...when he was awarded Knighthood by the British government in 1917."</p>
+                <p><strong>(d) No other Bengali writer had written science fiction before J.C. Bose.</strong><br>
+                ➔ <strong>True</strong>. Supporting Statement: "In fact, he was the first writer of science fictions in Bangla."</p>
+            </div>
+        </div>
+
+        <!-- Activity 7 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 7: Complete the statements</div>
+            <button class="btn-answer" onclick="toggleAnswer('ans7')">👁️ Show Answers</button>
+            <div id="ans7" class="answer-box">
+                <p><strong>(a)</strong> Crescograph is used to <u>measure the growth rate of plants</u>.</p>
+                <p><strong>(b)</strong> Bose proved that plants are <u>sensitive to heat, cold, light, noise and other external stimuli, just like human beings</u>.</p>
+                <p><strong>(c)</strong> In 1917 Bose founded <u>the 'Bose Institute' at his own house in Calcutta</u>.</p>
+                <p><strong>(d)</strong> Bose Institute was founded in <u>November 1917</u>.</p>
+            </div>
+        </div>
+
+        <!-- Activity 8 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 8: Answer the questions</div>
+            <button class="btn-answer" onclick="toggleAnswer('ans8')">👁️ Show Answers</button>
+            <div id="ans8" class="answer-box">
+                <p><strong>(a) Name a sensitive instrument invented by J.C. Bose. What is its use?</strong><br>
+                ➔ Crescograph. It is used to measure the growth rate of plants.</p>
+                <p><strong>(b) What did Bose prove by his experiments on plants?</strong><br>
+                ➔ Bose proved that plants behave in the same manner as human beings and are sensitive to heat, cold, light, noise and other external stimuli.</p>
+                <p><strong>(c) Do you think Bose was uninterested about securing patency right? Why?</strong><br>
+                ➔ Yes, because instead of looking for commercial benefit, he made his inventions public so that others could advance research further.</p>
+                <p><strong>(d) What were the various awards and honours conferred on Bose?</strong><br>
+                ➔ Knighthood (1917), Fellow of the Royal Society, Companion of the Order of the Indian Empire, etc.</p>
+                <p><strong>(e) Name some of his books and publications.</strong><br>
+                ➔ <em>Response in the Living and the Non-living</em> (1902), <em>The Nervous Mechanism of Plants</em> (1926), <em>Major Mechanism of Plants</em> (1928), and <em>Niruddesher Khoje</em> (1896).</p>
+            </div>
+        </div>
+
+        <!-- Activity 9 & 10 (Adverbs) -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 9 & 10: Adverbs Classification</div>
+            <p>Passage: Shanti is a young girl. She lives in a remote village with her family. Her school is five miles away from <strong>there</strong>. But Shanti attends her school <strong>daily</strong>. She stood third in her class in the previous examination. She believes that she can do better. She is <strong>now</strong> concentrating on her studies more <strong>seriously</strong>. Shanti <strong>never</strong> behaves <strong>rudely</strong> with her classmates. So they like her. She follows her teachers <strong>attentively</strong> in the class. <strong>Therefore</strong> the teachers really like her. They <strong>often</strong> enquire whether she is facing any problem. <strong>Why</strong> do many teachers think that Shanti is the best girl in the class? It is because Shanti has faced the challenges of life <strong>bravely</strong>.</p>
+            
+            <button class="btn-answer" onclick="toggleAnswer('ans9')">👁️ Show Adverb Table (Activity 10)</button>
+            <div id="ans9" class="answer-box">
+                <table class="custom-table">
+                    <tr><th>Adverb</th><th>Function</th><th>Type of Adverb</th></tr>
+                    <tr><td>there</td><td>indicates place where action happens</td><td>Adverb of Place</td></tr>
+                    <tr><td>daily / never / often</td><td>indicates how often something happens</td><td>Adverb of Frequency</td></tr>
+                    <tr><td>now</td><td>indicates time when action is completed</td><td>Adverb of Time</td></tr>
+                    <tr><td>therefore</td><td>indicates why the action is performed</td><td>Adverb of Cause & Effect</td></tr>
+                    <tr><td>seriously / rudely / attentively / bravely</td><td>indicates how/manner action is performed</td><td>Adverb of Manner</td></tr>
+                    <tr><td>why</td><td>used to ask a question</td><td>Interrogative Adverb</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Activity 11 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 11: Degree of Adjectives Transformation</div>
+            <button class="btn-answer" onclick="toggleAnswer('ans11')">👁️ Show Solutions</button>
+            <div id="ans11" class="answer-box">
+                <p><strong>(a) Plants are as sensitive as animals. (Comparative)</strong><br>
+                ➔ Animals are not more sensitive than plants.</p>
+                <p><strong>(b) Simla is cooler than Kolkata. (Positive)</strong><br>
+                ➔ Kolkata is not as cool as Simla.</p>
+                <p><strong>(c) Umesh Yadav is the fastest bowler in the Indian cricket team. (Comparative)</strong><br>
+                ➔ Umesh Yadav is faster than any other bowler in the Indian cricket team.</p>
+                <p><strong>(d) Ishant Sharma is taller than any other Indian cricketer. (Superlative)</strong><br>
+                ➔ Ishant Sharma is the tallest Indian cricketer.</p>
+                <p><strong>(e) Mt. Everest is the highest mountain in the world. (Positive)</strong><br>
+                ➔ No other mountain in the world is as high as Mt. Everest.</p>
+            </div>
+        </div>
+
+        <!-- Activity 12 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 12: Biography of Prafulla Chandra Roy</div>
+            <button class="btn-answer" onclick="toggleAnswer('ans12')">👁️ Read Writing</button>
+            <div id="ans12" class="answer-box">
+                <h4 style="color:var(--primary-dark);">Acharya Prafulla Chandra Roy</h4>
+                <p>
+                    Acharya Prafulla Chandra Roy was a legendary Indian chemist and educator. He was born in 1861 in Khulna (now in Bangladesh). His early education started at a village pathsala, followed by Hare School and Albert School. He passed the Entrance examination in 1879 and F.A. from Metropolitan College in 1882. Winning the Gilchrist scholarship, he travelled to London and earned his B.Sc. (1882–84) and D.Sc. degrees from Edinburgh University. In 1889, he joined Presidency College as a Professor. He made history in 1896 by synthesizing Mercurous Nitrite in the laboratory. A pioneer industrialist, he established Bengal Chemicals in 1901. Later, he joined Science College as Palit Professor. This eminent scientist passed away in 1944.
+                </p>
+            </div>
+        </div>
+
+        <!-- Activity 13 -->
+        <div class="activity-card">
+            <div class="activity-title">Activity 13: Letter to Postmaster</div>
+            <button class="btn-answer" onclick="toggleAnswer('ans13')">👁️ Read Letter</button>
+            <div id="ans13" class="answer-box">
+                <p>To,<br>
+                The Postmaster,<br>
+                Berhampore Post Office,<br>
+                Murshidabad.</p>
+                <p><strong>Subject: Request to retrieve misplaced letter delivered to wrong address</strong></p>
+                <p>Sir,</p>
+                <p>
+                    I would like to inform you that a letter addressed to me was wrongfully delivered to my neighbour’s house by the local postman earlier today due to an oversight.
+                </p>
+                <p>
+                    I kindly request you to look into the matter and arrange to retrieve the letter and hand it over to me at your earliest convenience. My details and address are given below.
+                </p>
+                <p>Thanking you,<br>
+                Yours faithfully,<br>
+                [Your Name]<br>
+                12, Station Road, Berhampore</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dictionary Modal Popup -->
+<div class="modal-overlay" id="dictModal">
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-word" id="mWord">Word</div>
+        <div class="modal-badge" id="mPos">Part of Speech</div>
+        
+        <div class="modal-detail-item">
+            <label>Pronunciation (উচ্চারণ)</label>
+            <span class="bn-text" id="mPron">উচ্চারণ</span>
+        </div>
+
+        <div class="modal-detail-item">
+            <label>Bengali Meaning (বাংলা অর্থ)</label>
+            <span class="bn-text" id="mMeaningBn">অর্থ</span>
+        </div>
+
+        <div class="modal-detail-item">
+            <label>English Meaning</label>
+            <span id="mMeaningEn">Meaning</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Dictionary Data Store
+    const dictionary = {
+        "biography": { pron: "বায়োগ্রাফি", pos: "Noun", bn: "জীবনী", en: "Life story of a person written by someone else" },
+        "eminent": { pron: "এমিনেন্ট", pos: "Adjective", bn: "বিখ্যাত / প্রখ্যাত", en: "Famous and respected within a particular sphere" },
+        "alive": { pron: "অ্যালাইভ", pos: "Adjective", bn: "জীবিত", en: "Living; not dead" },
+        "learn": { pron: "লার্ন", pos: "Verb", bn: "শেখা / জানা", en: "Gain knowledge or skill" },
+        "rule": { pron: "রুল", pos: "Noun", bn: "শাসন", en: "Control or dominion over a territory" },
+        "demonstration": { pron: "ডেমনস্ট্রেশন", pos: "Noun", bn: "প্রদর্শন / পরীক্ষা", en: "An activity showing and explaining how something works" },
+        "performed": { pron: "পারফর্মড", pos: "Verb", bn: "সম্পাদন করেছিলেন", en: "Carried out an action or experiment" },
+        "overawed": { pron: "ওভারঅড", pos: "Adjective/Verb", bn: "অভিভূত / স্তম্ভিত", en: "Impressed or filled with awe" },
+        "travelled": { pron: "ট্র্যাভেল্ড", pos: "Verb", bn: "অতিক্রম করেছিল / যাতায়াত করেছিল", en: "Moved from one place to another" },
+        "remarkable": { pron: "রিমার্কাবল", pos: "Adjective", bn: "উল্লেখযোগ্য", en: "Worthy of attention; extraordinary" },
+        "incident": { pron: "ইনসিডেন্ট", pos: "Noun", bn: "ঘটনা", en: "An event or occurrence" },
+        "paved": { pron: "পেভড", pos: "Verb", bn: "পথ প্রশস্ত করেছিল", en: "Created a situation in which something can happen" },
+        "diverse": { pron: "ডাইভার্স", pos: "Adjective", bn: "বহুমুখী / নানা প্রকার", en: "Of various kinds; showing variety" },
+        "physicist": { pron: "ফিজিসিস্ট", pos: "Noun", bn: "পদার্থবিদ", en: "A scientist who studies physics" },
+        "biologist": { pron: "বায়োলজিস্ট", pos: "Noun", bn: "জীববিজ্ঞানী", en: "A scientist who studies living organisms" },
+        "botanist": { pron: "বোটানিস্ট", pos: "Noun", bn: "উদ্ভিদবিদ", en: "A scientist who studies plant life" },
+        "privileged": { pron: "প্রিভিলেজড", pos: "Adjective", bn: "বিশেষ সুবিধা প্রাপ্ত / মর্যাদা সম্পন্ন", en: "Having special rights or immunities" },
+        "attendant": { pron: "অ্যাটেন্ডেন্ট", pos: "Noun", bn: "অনুগামী / সেবক", en: "A person who accompanies or attends" },
+        "spellbound": { pron: "স্পেলবাউন্ড", pos: "Adjective", bn: "মন্ত্রমুগ্ধ", en: "Holding complete attention as if by magic" },
+        "aquatic": { pron: "অ্যাকোয়াটিক", pos: "Adjective", bn: "জলজ", en: "Living or growing in or near water" },
+        "investigating": { pron: "ইনভেস্টিগেটিং", pos: "Verb/Participle", bn: "অনুসন্ধান করা", en: "Searching into or examining closely" },
+        "discrimination": { pron: "ডিসক্রিমিনেশন", pos: "Noun", bn: "ভেদাভেদ / বৈষম্য", en: "Unfair treatment of different categories of people" },
+        "officiating": { pron: "অফিসিয়েটিং", pos: "Adjective/Participle", bn: "ভারপ্রাপ্ত", en: "Acting in an official capacity temporarily" },
+        "sensitive": { pron: "সেনসিটিভ", pos: "Adjective", bn: "সংবেদনশীল / সূক্ষ্মগ্রাহী", en: "Able to measure very small changes or react to stimuli" },
+        "initiated": { pron: "ইনিশিয়েটেড", pos: "Verb", bn: "সূচনা করেছিলেন", en: "Set something in motion or started" },
+        "astronomy": { pron: "অ্যাস্ট্রোনমি", pos: "Noun", bn: "জ্যোতির্বিজ্ঞান", en: "Study of stars, planets and outer space" },
+        "library": { pron: "লাইব্রেরি", pos: "Noun", bn: "গ্রন্থাগার", en: "A place where books are kept" },
+        "garage": { pron: "গ্যারেজ", pos: "Noun", bn: "গাড়ির গ্যারেজ", en: "A place to keep cars" },
+        "psychology": { pron: "সাইকোলজি", pos: "Noun", bn: "মনোবিজ্ঞান", en: "Study of human mind and behavior" },
+        "orchard": { pron: "অর্চার্ড", pos: "Noun", bn: "ফলবাগান", en: "A garden of fruit trees" },
+        "cashier": { pron: "ক্যাশিয়ার", pos: "Noun", bn: "কষাধ্যক্ষ / কোষাধ্যক্ষ", en: "A person who handles cash" }
+    };
+
+    // Attach click listener to words
+    document.addEventListener("DOMContentLoaded", () => {
+        const words = document.querySelectorAll('.w');
+        words.forEach(wordSpan => {
+            wordSpan.addEventListener('click', (e) => {
+                const text = wordSpan.textContent.trim().toLowerCase();
+                showWordModal(text);
+            });
+        });
+    });
+
+    function showWordModal(wordKey) {
+        const info = dictionary[wordKey] || {
+            pron: wordKey,
+            pos: "Word",
+            bn: "অর্থ সহজলভ্য",
+            en: "Interactive vocabulary entry"
+        };
+
+        document.getElementById('mWord').textContent = wordKey.charAt(0).toUpperCase() + wordKey.slice(1);
+        document.getElementById('mPos').textContent = info.pos;
+        document.getElementById('mPron').textContent = info.pron;
+        document.getElementById('mMeaningBn').textContent = info.bn;
+        document.getElementById('mMeaningEn').textContent = info.en;
+
+        document.getElementById('dictModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('dictModal').classList.remove('active');
+    }
+
+    // Toggle Answer visibility
+    function toggleAnswer(id) {
+        const box = document.getElementById(id);
+        if (box.classList.contains('show')) {
+            box.classList.remove('show');
+        } else {
+            box.classList.add('show');
+        }
+    }
+
+    // Close modal when clicking outside box
+    window.onclick = function(event) {
+        const modal = document.getElementById('dictModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>
