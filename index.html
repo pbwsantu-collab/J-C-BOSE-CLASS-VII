@@ -9,7 +9,7 @@
         :root {
             --primary: #4A90E2;
             --primary-dark: #357ABD;
-            --secondary: #FF6B6B;
+            --secondary: #E63946;
             --accent: #FFD166;
             --success: #06D6A0;
             --bg-grad-1: #E0C3FC;
@@ -46,7 +46,6 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-bottom: 25px;
-            animation: fadeInDown 0.8s ease-out;
         }
 
         header h1 {
@@ -69,7 +68,6 @@
             font-weight: 600;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            animation: pulse 2s infinite;
         }
 
         .section-card {
@@ -78,13 +76,6 @@
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .section-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
         }
 
         h2.unit-title {
@@ -111,7 +102,7 @@
         /* Every Word Clickable Style */
         .w {
             cursor: pointer;
-            padding: 1px 2px;
+            padding: 1px 3px;
             border-radius: 4px;
             transition: all 0.2s ease;
             display: inline;
@@ -181,7 +172,6 @@
             padding: 15px;
             border-radius: 8px;
             margin-top: 10px;
-            animation: fadeIn 0.4s ease-in-out;
         }
 
         .answer-box.show {
@@ -218,14 +208,8 @@
             width: 90%;
             max-width: 450px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
             position: relative;
             text-align: center;
-        }
-
-        .modal-overlay.active .modal-card {
-            transform: scale(1);
         }
 
         .modal-close {
@@ -284,7 +268,6 @@
             color: var(--secondary);
         }
 
-        /* Custom Table */
         .custom-table {
             width: 100%;
             border-collapse: collapse;
@@ -305,28 +288,6 @@
             background: var(--primary);
             color: white;
         }
-
-        /* Keyframe Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.01); }
-            100% { transform: scale(1); }
-        }
     </style>
 </head>
 <body>
@@ -334,7 +295,7 @@
 <div class="container">
     <header>
         <h1>Lesson 9: J.C. Bose: A Beautiful Mind</h1>
-        <p>Complete Interactive Reader with Clickable Word Meanings (Text, Questions, Answers & Writing)</p>
+        <p>Complete Interactive Reader with 100% Clickable English-to-Bengali Word Meanings</p>
     </header>
 
     <div class="instruction-banner">
@@ -351,11 +312,11 @@
         </div>
 
         <h3 class="section-subtitle">Let's share :</h3>
-        <ul style="margin-left: 20px; margin-bottom: 15px;">
-            <li>Can you name any eminent person of your district?</li>
-            <li>Who is this person in the picture?</li>
-            <li>Do you know anything about him?</li>
-        </ul>
+        <div class="passage-text">
+            <p>Can you name any eminent person of your district?</p>
+            <p>Who is this person in the picture?</p>
+            <p>Do you know anything about him?</p>
+        </div>
     </div>
 
     <!-- UNIT I -->
@@ -382,25 +343,25 @@
 
         <div class="word-nest">
             <h4>Word Nest</h4>
-            <ul>
-                <li>demonstration: an activity that shows and explains how something works</li>
-                <li>overawed: impressed</li>
-                <li>paved: created a situation in which something can happen</li>
-                <li>diverse: of various kinds</li>
-                <li>spellbound: attention completely held by what the person is listening to and watching</li>
-                <li>discrimination: practice of treating somebody less fairly than others</li>
-            </ul>
+            <p><strong>demonstration:</strong> an activity that shows and explains how something works</p>
+            <p><strong>overawed:</strong> impressed</p>
+            <p><strong>paved:</strong> created a situation in which something can happen</p>
+            <p><strong>diverse:</strong> of various kinds</p>
+            <p><strong>spellbound:</strong> attention completely held by what the person is listening to and watching</p>
+            <p><strong>discrimination:</strong> practice of treating somebody less fairly than others</p>
         </div>
 
         <!-- Activity 1 -->
         <div class="activity-card">
             <div class="activity-title">Activity 1: Choose the correct answer from the given options</div>
-            <p>(a) Jagadish Chandra Bose studied in— (i) Hindu School (ii) Hare School (iii) Ballygunge Government School.</p>
-            <p>(b) Bose met Father Lafont at— (i) Cambridge (ii) London (iii) St. Xavier’s College</p>
-            <p>(c) Bose graduated in B.Sc. from — (i) University of Cambridge (ii) University of Oxford (iii) University of London</p>
+            <div class="passage-text">
+                <p>(a) Jagadish Chandra Bose studied in— (i) Hindu School (ii) Hare School (iii) Ballygunge Government School.</p>
+                <p>(b) Bose met Father Lafont at— (i) Cambridge (ii) London (iii) St. Xavier’s College</p>
+                <p>(c) Bose graduated in B.Sc. from — (i) University of Cambridge (ii) University of Oxford (iii) University of London</p>
+            </div>
             
             <button class="btn-answer" onclick="toggleAnswer('ans1')">👁️ Show Answers</button>
-            <div id="ans1" class="answer-box">
+            <div id="ans1" class="answer-box passage-text">
                 <p><strong>(a)</strong> (ii) Hare School</p>
                 <p><strong>(b)</strong> (iii) St. Xavier’s College</p>
                 <p><strong>(c)</strong> (iii) University of London</p>
@@ -410,7 +371,7 @@
         <!-- Activity 2 -->
         <div class="activity-card">
             <div class="activity-title">Activity 2: Fill in the chart with information from the text</div>
-            <table class="custom-table">
+            <table class="custom-table passage-text">
                 <tr><th>Year</th><th>Event</th></tr>
                 <tr><td>1858</td><td>J.C. Bose was born</td></tr>
                 <tr><td>1869</td><td>Joined Hare School</td></tr>
@@ -420,29 +381,29 @@
                 <tr><td>1895</td><td>Demonstration at Town Hall</td></tr>
             </table>
             <button class="btn-answer" onclick="toggleAnswer('ans2')">👁️ Verify Answers</button>
-            <div id="ans2" class="answer-box">
+            <div id="ans2" class="answer-box passage-text">
                 <p><strong>Missing Years & Events filled in table above!</strong></p>
-                <ul>
-                    <li><strong>1858:</strong> J.C. Bose was born (30th Nov)</li>
-                    <li><strong>1869:</strong> Joined Hare School</li>
-                    <li><strong>1875:</strong> Admitted to St. Xavier's School</li>
-                    <li><strong>1884:</strong> Received Natural Science Tripos & B.Sc. degree</li>
-                    <li><strong>1885:</strong> Joined Presidency College as officiating Professor</li>
-                    <li><strong>1895:</strong> Demonstration at Town Hall</li>
-                </ul>
+                <p>1858: J.C. Bose was born on 30th November.</p>
+                <p>1869: Joined Hare School.</p>
+                <p>1875: Admitted to St. Xavier's School.</p>
+                <p>1884: Received Natural Science Tripos & B.Sc. degree.</p>
+                <p>1885: Joined Presidency College as officiating Professor.</p>
+                <p>1895: Demonstration at Town Hall.</p>
             </div>
         </div>
 
         <!-- Activity 3 -->
         <div class="activity-card">
             <div class="activity-title">Activity 3: Complete the following statements</div>
-            <p>(a) Bose’s father used to work as ________________________</p>
-            <p>(b) ________________________ was the leader of the Brahmo Samaj</p>
-            <p>(c) In his school days Bose’s playmates were ________________________</p>
-            <p>(d) Bose went to England to ________________________</p>
+            <div class="passage-text">
+                <p>(a) Bose’s father used to work as ________________________</p>
+                <p>(b) ________________________ was the leader of the Brahmo Samaj</p>
+                <p>(c) In his school days Bose’s playmates were ________________________</p>
+                <p>(d) Bose went to England to ________________________</p>
+            </div>
 
             <button class="btn-answer" onclick="toggleAnswer('ans3')">👁️ Show Answers</button>
-            <div id="ans3" class="answer-box">
+            <div id="ans3" class="answer-box passage-text">
                 <p><strong>(a)</strong> a Deputy Magistrate in Faridpur, Burdwan and in other places.</p>
                 <p><strong>(b)</strong> Bhagwan Chandra Bose</p>
                 <p><strong>(c)</strong> the son of the Muslim attendant of his father and the son of a fisherman.</p>
@@ -453,13 +414,15 @@
         <!-- Activity 4 -->
         <div class="activity-card">
             <div class="activity-title">Activity 4: Answer the following questions</div>
-            <p>(a) Why did Jagadish Chandra Bose receive his early education in a Vernacular school?</p>
-            <p>(b) What did Bose’s mother do when he brought his friends home from school?</p>
-            <p>(c) Who was Lafont? How did he influence Bose?</p>
-            <p>(d) Why did Bose refuse to accept his salary?</p>
+            <div class="passage-text">
+                <p>(a) Why did Jagadish Chandra Bose receive his early education in a Vernacular school?</p>
+                <p>(b) What did Bose’s mother do when he brought his friends home from school?</p>
+                <p>(c) Who was Lafont? How did he influence Bose?</p>
+                <p>(d) Why did Bose refuse to accept his salary?</p>
+            </div>
 
             <button class="btn-answer" onclick="toggleAnswer('ans4')">👁️ Show Answers</button>
-            <div id="ans4" class="answer-box">
+            <div id="ans4" class="answer-box passage-text">
                 <p><strong>(a)</strong> Bose’s father believed that one must know one’s mother tongue before learning any other language, and that one should know one’s own people.</p>
                 <p><strong>(b)</strong> Bose's mother welcomed and fed all of his friends without any discrimination.</p>
                 <p><strong>(c)</strong> Father Eugene Lafont was a Jesuit Father at St. Xavier's College. He played a significant role in developing Bose's interest in natural science.</p>
@@ -471,15 +434,13 @@
         <div class="activity-card">
             <div class="activity-title">Activity 5: Match single words with their expanded forms</div>
             <button class="btn-answer" onclick="toggleAnswer('ans5')">👁️ Show Matched Pairs</button>
-            <div id="ans5" class="answer-box">
-                <ul>
-                    <li>astronomy ➔ study of stars and planets</li>
-                    <li>library ➔ a place where books are kept</li>
-                    <li>garage ➔ a place to keep cars</li>
-                    <li>psychology ➔ study of human mind</li>
-                    <li>orchard ➔ a garden of many fruit trees</li>
-                    <li>cashier ➔ a person who handles cash</li>
-                </ul>
+            <div id="ans5" class="answer-box passage-text">
+                <p>astronomy ➔ study of stars and planets</p>
+                <p>library ➔ a place where books are kept</p>
+                <p>garage ➔ a place to keep cars</p>
+                <p>psychology ➔ study of human mind</p>
+                <p>orchard ➔ a garden of many fruit trees</p>
+                <p>cashier ➔ a person who handles cash</p>
             </div>
         </div>
     </div>
@@ -508,18 +469,16 @@
 
         <div class="word-nest">
             <h4>Word Nest</h4>
-            <ul>
-                <li>sensitive: able to measure very small changes</li>
-                <li>initiated: set something in motion</li>
-                <li>patency: official right to be the only person to make use of an invention</li>
-            </ul>
+            <p><strong>sensitive:</strong> able to measure very small changes</p>
+            <p><strong>initiated:</strong> set something in motion</p>
+            <p><strong>patency:</strong> official right to be the only person to make use of an invention</p>
         </div>
 
         <!-- Activity 6 -->
         <div class="activity-card">
             <div class="activity-title">Activity 6: Identify True/False with Supporting Statements</div>
             <button class="btn-answer" onclick="toggleAnswer('ans6')">👁️ Show Solutions</button>
-            <div id="ans6" class="answer-box">
+            <div id="ans6" class="answer-box passage-text">
                 <p><strong>(a) Crescograph was invented by Marconi.</strong><br>
                 ➔ <strong>False</strong>. Supporting Statement: "Bose had invented several sensitive instruments. One of them is the Crescograph..."</p>
                 <p><strong>(b) Marconi got the patency right for wireless telegraphy.</strong><br>
@@ -535,7 +494,7 @@
         <div class="activity-card">
             <div class="activity-title">Activity 7: Complete the statements</div>
             <button class="btn-answer" onclick="toggleAnswer('ans7')">👁️ Show Answers</button>
-            <div id="ans7" class="answer-box">
+            <div id="ans7" class="answer-box passage-text">
                 <p><strong>(a)</strong> Crescograph is used to measure the growth rate of plants.</p>
                 <p><strong>(b)</strong> Bose proved that plants are sensitive to heat, cold, light, noise and other external stimuli, just like human beings.</p>
                 <p><strong>(c)</strong> In 1917 Bose founded the Bose Institute at his own house in Calcutta.</p>
@@ -547,7 +506,7 @@
         <div class="activity-card">
             <div class="activity-title">Activity 8: Answer the questions</div>
             <button class="btn-answer" onclick="toggleAnswer('ans8')">👁️ Show Answers</button>
-            <div id="ans8" class="answer-box">
+            <div id="ans8" class="answer-box passage-text">
                 <p><strong>(a) Name a sensitive instrument invented by J.C. Bose. What is its use?</strong><br>
                 ➔ Crescograph. It is used to measure the growth rate of plants.</p>
                 <p><strong>(b) What did Bose prove by his experiments on plants?</strong><br>
@@ -564,10 +523,12 @@
         <!-- Activity 9 & 10 (Adverbs) -->
         <div class="activity-card">
             <div class="activity-title">Activity 9 & 10: Adverbs Classification</div>
-            <p>Passage: Shanti is a young girl. She lives in a remote village with her family. Her school is five miles away from there. But Shanti attends her school daily. She stood third in her class in the previous examination. She believes that she can do better. She is now concentrating on her studies more seriously. Shanti never behaves rudely with her classmates. So they like her. She follows her teachers attentively in the class. Therefore the teachers really like her. They often enquire whether she is facing any problem. Why do many teachers think that Shanti is the best girl in the class? It is because Shanti has faced the challenges of life bravely.</p>
+            <div class="passage-text">
+                <p>Passage: Shanti is a young girl. She lives in a remote village with her family. Her school is five miles away from there. But Shanti attends her school daily. She stood third in her class in the previous examination. She believes that she can do better. She is now concentrating on her studies more seriously. Shanti never behaves rudely with her classmates. So they like her. She follows her teachers attentively in the class. Therefore the teachers really like her. They often enquire whether she is facing any problem. Why do many teachers think that Shanti is the best girl in the class? It is because Shanti has faced the challenges of life bravely.</p>
+            </div>
             
             <button class="btn-answer" onclick="toggleAnswer('ans9')">👁️ Show Adverb Table (Activity 10)</button>
-            <div id="ans9" class="answer-box">
+            <div id="ans9" class="answer-box passage-text">
                 <table class="custom-table">
                     <tr><th>Adverb</th><th>Function</th><th>Type of Adverb</th></tr>
                     <tr><td>there</td><td>indicates place where action happens</td><td>Adverb of Place</td></tr>
@@ -584,7 +545,7 @@
         <div class="activity-card">
             <div class="activity-title">Activity 11: Degree of Adjectives Transformation</div>
             <button class="btn-answer" onclick="toggleAnswer('ans11')">👁️ Show Solutions</button>
-            <div id="ans11" class="answer-box">
+            <div id="ans11" class="answer-box passage-text">
                 <p><strong>(a) Plants are as sensitive as animals. (Comparative)</strong><br>
                 ➔ Animals are not more sensitive than plants.</p>
                 <p><strong>(b) Simla is cooler than Kolkata. (Positive)</strong><br>
@@ -602,7 +563,7 @@
         <div class="activity-card">
             <div class="activity-title">Activity 12: Biography of Prafulla Chandra Roy</div>
             <button class="btn-answer" onclick="toggleAnswer('ans12')">👁️ Read Writing</button>
-            <div id="ans12" class="answer-box">
+            <div id="ans12" class="answer-box passage-text">
                 <h4 style="color:var(--primary-dark);">Acharya Prafulla Chandra Roy</h4>
                 <p>
                     Acharya Prafulla Chandra Roy was a legendary Indian chemist and educator. He was born in 1861 in Khulna (now in Bangladesh). His early education started at a village pathsala, followed by Hare School and Albert School. He passed the Entrance examination in 1879 and F.A. from Metropolitan College in 1882. Winning the Gilchrist scholarship, he travelled to London and earned his B.Sc. (1882–84) and D.Sc. degrees from Edinburgh University. In 1889, he joined Presidency College as a Professor. He made history in 1896 by synthesizing Mercurous Nitrite in the laboratory. A pioneer industrialist, he established Bengal Chemicals in 1901. Later, he joined Science College as Palit Professor. This eminent scientist passed away in 1944.
@@ -614,7 +575,7 @@
         <div class="activity-card">
             <div class="activity-title">Activity 13: Letter to Postmaster</div>
             <button class="btn-answer" onclick="toggleAnswer('ans13')">👁️ Read Letter</button>
-            <div id="ans13" class="answer-box">
+            <div id="ans13" class="answer-box passage-text">
                 <p>To,<br>
                 The Postmaster,<br>
                 Berhampore Post Office,<br>
@@ -661,52 +622,415 @@
 </div>
 
 <script>
-    // Dictionary Data Store for Vocabulary
+    // Comprehensive Dictionary Database
     const dictionary = {
+        "a": { pron: "এ / একটি", pos: "Indefinite Article", bn: "একটি / একজন", en: "Used to refer to one non-specific person or thing" },
+        "an": { pron: "অ্যান", pos: "Indefinite Article", bn: "একটি (স্বরবর্ণের আগে)", en: "Used before words starting with a vowel sound" },
+        "the": { pron: "দি / দ্য", pos: "Definite Article", bn: "টি / টা / নির্দিষ্ট করে বোঝাতে", en: "Denoting a specific person, place, or thing" },
         "biography": { pron: "বায়োগ্রাফি", pos: "Noun", bn: "জীবনী", en: "Life story of a person written by someone else" },
-        "eminent": { pron: "এমিনেন্ট", pos: "Adjective", bn: "বিখ্যাত / প্রখ্যাত", en: "Famous and respected" },
-        "alive": { pron: "অ্যালাইভ", pos: "Adjective", bn: "জীবিত", en: "Living; not dead" },
-        "learn": { pron: "লার্ন", pos: "Verb", bn: "শেখা / জানা", en: "Gain knowledge or skill" },
-        "rule": { pron: "রুল", pos: "Noun", bn: "শাসন", en: "Control or dominion over a territory" },
+        "biographies": { pron: "বায়োগ্রাফিজ", pos: "Noun (Plural)", bn: "জীবনীসমূহ", en: "Plural form of biography" },
+        "life": { pron: "লাইফ", pos: "Noun", bn: "জীবন", en: "The condition that distinguishes animals and plants from inorganic matter" },
+        "story": { pron: "স্টোরি", pos: "Noun", bn: "গল্প / কাহিনি", en: "An account of imaginary or real people and events" },
+        "stories": { pron: "স্টোরিজ", pos: "Noun (Plural)", bn: "গল্পসমূহ", en: "Plural form of story" },
+        "someone": { pron: "সামওয়ান", pos: "Pronoun", bn: "কেউ একজন", en: "An unknown or unspecified person" },
+        "somebody": { pron: "সামবডি", pos: "Pronoun", bn: "কেউ একজন", en: "A person who is not specified" },
+        "usually": { pron: "ইউজুয়ালি", pos: "Adverb", bn: "সাধারণত", en: "Under normal conditions; generally" },
+        "eminent": { pron: "এমিনেন্ট", pos: "Adjective", bn: "বিখ্যাত / বিশিষ্ট / প্রখ্যাত", en: "Famous and respected within a particular sphere" },
+        "person": { pron: "পারসন", pos: "Noun", bn: "ব্যক্তি / মানুষ", en: "A human being regarded as an individual" },
+        "persons": { pron: "পারসন্স", pos: "Noun (Plural)", bn: "ব্যক্তিবর্গ", en: "Plural form of person" },
+        "may": { pron: "মে", pos: "Modal Verb", bn: "পারে / হতে পারে", en: "Expressing possibility or permission" },
+        "be": { pron: "বি", pos: "Verb", bn: "হওয়া", en: "Exist or live" },
+        "alive": { pron: "অ্যালাইভ", pos: "Adjective", bn: "জীবিত / সজীব", en: "Living; not dead" },
+        "or": { pron: "অর", pos: "Conjunction", bn: "অথবা / কিংবা", en: "Used to connect alternatives" },
+        "dead": { pron: "ডেড", pos: "Adjective", bn: "মৃত / প্রাণহীন", en: "No longer alive" },
+        "always": { pron: "অলওয়েজ", pos: "Adverb", bn: "সবসময় / সর্বদা", en: "At all times; on all occasions" },
+        "written": { pron: "রিটেন", pos: "Verb (Past Participle)", bn: "লিখিত / লেখা হয়েছে", en: "Expressed in writing" },
+        "by": { pron: "বাই", pos: "Preposition", bn: "দ্বারা / কর্তৃক", en: "Identifying the agent performing an action" },
+        "other": { pron: "আদার", pos: "Adjective/Pronoun", bn: "অন্যান্য / অপর", en: "Denoting a person or thing that is different" },
+        "than": { pron: "দ্যান", pos: "Conjunction/Preposition", bn: "চেয়ে / অপেক্ষা", en: "Used to introduce a second element in a comparison" },
+        "himself": { pron: "হিমসেলফ", pos: "Pronoun", bn: "সে নিজে / তিনি নিজে", en: "Used to refer back to a male person" },
+        "we": { pron: "উই", pos: "Pronoun", bn: "আমরা", en: "Used by a speaker to refer to himself or herself and one or more other people" },
+        "read": { pron: "রীড", pos: "Verb", bn: "পড়া / পাঠ করা", en: "Look at and comprehend the meaning of written matter" },
+        "so": { pron: "সো", pos: "Conjunction/Adverb", bn: "যাতে / তাই", en: "With the result that; therefore" },
+        "that": { pron: "দ্যাট", pos: "Conjunction/Pronoun", bn: "যে / যেটা", en: "Introducing a clause expressing a reason or purpose" },
+        "learn": { pron: "লার্ন", pos: "Verb", bn: "শেখা / জ্ঞান অর্জন করা", en: "Gain knowledge or skill in something" },
+        "about": { pron: "অ্যাবাউট", pos: "Preposition", bn: "সম্পর্কে / বিষয়ে", en: "On the subject of; concerning" },
+        "them": { pron: "দেম", pos: "Pronoun", bn: "তাদেরকে / তাদের", en: "Refers to two or more people or things" },
+        "and": { pron: "অ্যান্ড", pos: "Conjunction", bn: "এবং / ও", en: "Used to connect words or clauses" },
+        "try": { pron: "ট্রাই", pos: "Verb", bn: "চেষ্টা করা", en: "Make an attempt or effort to do something" },
+        "to": { pron: "টু", pos: "Preposition", bn: "প্রতি / দিকে / করতে", en: "Expressing motion or direction towards a point" },
+        "like": { pron: "লাইক", pos: "Preposition/Verb", bn: "মতো / পছন্দ করা", en: "Having the same characteristics as; similar to" },
+        "can": { pron: "ক্যান", pos: "Modal Verb", bn: "পারা / সমর্থ হওয়া", en: "Be able to" },
+        "you": { pron: "ইউ", pos: "Pronoun", bn: "তুমি / আপনি", en: "Used to refer to the person being addressed" },
+        "name": { pron: "নেম", pos: "Verb/Noun", bn: "নাম রাখা / নাম বলা", en: "Identify by name" },
+        "any": { pron: "এনি", pos: "Determiner", bn: "যেকোনো / কোনো", en: "Used to refer to one or some of a thing" },
+        "district": { pron: "ডিস্ট্রিক্ট", pos: "Noun", bn: "জেলা", en: "An area of a country or city" },
+        "who": { pron: "হু", pos: "Pronoun", bn: "কে / যিনি", en: "What or which person" },
+        "is": { pron: "ইজ", pos: "Auxiliary Verb", bn: "হয় / আছে", en: "Third-person singular present of be" },
+        "this": { pron: "দিস", pos: "Demonstrative Pronoun", bn: "এই / এটি", en: "Referring to a specific person or thing nearby" },
+        "in": { pron: "ইন", pos: "Preposition", bn: "মধ্যে / ভেতরে", en: "Expressing inclusion within a space or area" },
+        "picture": { pron: "পিকচার", pos: "Noun", bn: "ছবি / চিত্র", en: "A painting, drawing, or photograph" },
+        "do": { pron: "ডু", pos: "Auxiliary Verb", bn: "করা", en: "Perform an action" },
+        "know": { pron: "নো", pos: "Verb", bn: "জানা / চেনা", en: "Be aware of through observation or inquiry" },
+        "anything": { pron: "এনিথিং", pos: "Pronoun", bn: "যেকোনো কিছু", en: "A thing of any kind" },
+        "him": { pron: "হিম", pos: "Pronoun", bn: "তাকে / তাঁকে", en: "Used as the object of a verb or preposition to refer to a male person" },
+        "historically": { pron: "হিস্টোরিক্যালি", pos: "Adverb", bn: "ঐতিহাসিকভাবে", en: "With reference to past events or history" },
+        "under": { pron: "আন্ডার", pos: "Preposition", bn: "অধীনে / নিচে", en: "Controlled or governed by" },
+        "british": { pron: "ব্রিটিশ", pos: "Adjective", bn: "ব্রিটিশ / ইংরেজদের", en: "Relating to Great Britain" },
+        "rule": { pron: "রুল", pos: "Noun", bn: "শাসন / নিয়ম", en: "Control or dominion over a territory or people" },
+        "different": { pron: "ডিফারেন্ট", pos: "Adjective", bn: "বিভিন্ন / অন্যরকম", en: "Not the same as another or each other" },
+        "history": { pron: "হিস্ট্রি", pos: "Noun", bn: "ইতিহাস", en: "The study of past events" },
+        "was": { pron: "ওয়াজ", pos: "Verb (Past)", bn: "ছিল / হয়েছিল", en: "First and third-person singular past of be" },
+        "made": { pron: "মেড", pos: "Verb (Past)", bn: "তৈরি করেছিল / গড়ে উঠেছিল", en: "Formed or created" },
+        "year": { pron: "ইয়ার", pos: "Noun", bn: "বছর / সাল", en: "A period of 365 days" },
+        "at": { pron: "অ্যাট", pos: "Preposition", bn: "এ / তে / স্থানে", en: "Expressing location or arrival in a particular place" },
+        "town": { pron: "টাউন", pos: "Noun", bn: "শহর / নগর", en: "A built-up area larger than a village" },
+        "hall": { pron: "হল", pos: "Noun", bn: "হলঘর / মিলনায়তন", en: "A large room or building for public gatherings" },
+        "calcutta": { pron: "ক্যালকাটা", pos: "Proper Noun", bn: "কলকাতা", en: "Former official name of Kolkata, India" },
+        "interesting": { pron: "ইন্টারেস্টিং", pos: "Adjective", bn: "আকর্ষণীয় / কৌতূহলোদ্দীপক", en: "Holding or catching the attention" },
         "demonstration": { pron: "ডেমনস্ট্রেশন", pos: "Noun", bn: "প্রদর্শন / পরীক্ষা", en: "An activity showing and explaining how something works" },
-        "performed": { pron: "পারফর্মড", pos: "Verb", bn: "সম্পাদন করেছিলেন", en: "Carried out an action or experiment" },
+        "performed": { pron: "পারফর্মড", pos: "Verb (Past)", bn: "সম্পাদন করেছিলেন / প্রদর্শন করেছিলেন", en: "Carried out or executed an action" },
+        "assistant": { pron: "অ্যাসিস্ট্যান্ট", pos: "Adjective/Noun", bn: "সহকারী", en: "A person who helps or holds a lower rank" },
+        "professor": { pron: "প্রোফেসর", pos: "Noun", bn: "অধ্যাপক", en: "A teacher of the highest rank in a college or university" },
+        "presidency": { pron: "প্রেসিডেন্সি", pos: "Proper Noun", bn: "প্রেসিডেন্সি", en: "Name of the famous historical college in Kolkata" },
+        "college": { pron: "কলেজ", pos: "Noun", bn: "মহাবিদ্যালয় / কলেজ", en: "An educational institution or establishment" },
+        "everyone": { pron: "এভরিওয়ান", pos: "Pronoun", bn: "প্রত্যেকে / সবাই", en: "Every person" },
         "overawed": { pron: "ওভারঅড", pos: "Adjective/Verb", bn: "অভিভূত / স্তম্ভিত", en: "Impressed or filled with awe" },
-        "travelled": { pron: "ট্র্যাভেল্ড", pos: "Verb", bn: "অতিক্রম করেছিল / যাতায়াত করেছিল", en: "Moved from one place to another" },
-        "remarkable": { pron: "রিমার্কাবল", pos: "Adjective", bn: "উল্লেখযোগ্য", en: "Worthy of attention; extraordinary" },
+        "when": { pron: "হোয়েন", pos: "Conjunction/Adverb", bn: "যখন / কখন", en: "At or during which time" },
+        "electro-magnetic": { pron: "ইলেক্ট্রো-ম্যাগনেটিক", pos: "Adjective", bn: "তড়িৎ-চৌম্বকীয়", en: "Relating to electrical and magnetic fields" },
+        "waves": { pron: "ওয়েভস", pos: "Noun (Plural)", bn: "তরঙ্গসমূহ / ঢেউ", en: "Vibrations carrying energy through space or matter" },
+        "travelled": { pron: "ট্র্যাভেল্ড", pos: "Verb (Past)", bn: "অতিক্রম করেছিল / সঞ্চালিত হয়েছিল", en: "Moved or transmitted from one place to another" },
+        "from": { pron: "ফ্রম", pos: "Preposition", bn: "থেকে / হতে", en: "Indicating the point in space or time at which an action starts" },
+        "lecture": { pron: "লেকচার", pos: "Noun", bn: "বক্তৃতা / শিক্ষাদানের ঘর", en: "An educational talk to an audience" },
+        "third": { pron: "থার্ড", pos: "Ordinal Number", bn: "তৃতীয়", en: "Constituting number three in a sequence" },
+        "room": { pron: "রুম", pos: "Noun", bn: "ঘর / কক্ষ", en: "A space within a building enclosed by walls" },
+        "metres": { pron: "মিটারস", pos: "Noun (Plural)", bn: "মিটার (দৈর্ঘ্যের একক)", en: "Metric units of length" },
+        "away": { pron: "অ্যাওয়ে", pos: "Adverb", bn: "দূরে", en: "At a distance from a particular place or person" },
+        "these": { pron: "দিজ", pos: "Demonstrative Pronoun", bn: "এইগুলি / এগুলো", en: "Plural form of this" },
+        "passed": { pron: "পাসড", pos: "Verb (Past)", bn: "অতিক্রম করেছিল / ভেদ করে গিয়েছিল", en: "Moved through or past something" },
+        "through": { pron: "থ্রু", pos: "Preposition", bn: "মধ্য দিয়ে / ভেদ করে", en: "Moving in one side and out of the other side of an object" },
+        "three": { pron: "থ্রি", pos: "Number", bn: "তিনটি", en: "The number 3" },
+        "solid": { pron: "সলিড", pos: "Adjective", bn: "কঠিন / নিরেট", en: "Firm and stable in shape; not liquid or fluid" },
+        "walls": { pron: "ওয়ালস", pos: "Noun (Plural)", bn: "দেওয়ালসমূহ", en: "Vertical structures enclosing or dividing an area" },
+        "remarkable": { pron: "রিমার্কাবল", pos: "Adjective", bn: "উল্লেখযোগ্য / অসাধারণ", en: "Worthy of attention; extraordinary" },
+        "path-breaking": { pron: "পথ-ব্রেকিং", pos: "Adjective", bn: "যুগান্তকারী / নতুন পথ প্রদর্শক", en: "Pioneering or innovative" },
         "incident": { pron: "ইনসিডেন্ট", pos: "Noun", bn: "ঘটনা", en: "An event or occurrence" },
-        "paved": { pron: "পেভড", pos: "Verb", bn: "পথ প্রশস্ত করেছিল", en: "Created a situation in which something can happen" },
-        "diverse": { pron: "ডাইভার্স", pos: "Adjective", bn: "বহুমুখী / নানা প্রকার", en: "Of various kinds; showing variety" },
-        "physicist": { pron: "ফিজিসিস্ট", pos: "Noun", bn: "পদার্থবিদ", en: "A scientist who studies physics" },
-        "biologist": { pron: "বায়োলজিস্ট", pos: "Noun", bn: "জীববিজ্ঞানী", en: "A scientist who studies living organisms" },
-        "botanist": { pron: "বোটানিস্ট", pos: "Noun", bn: "উদ্ভিদবিদ", en: "A scientist who studies plant life" },
-        "privileged": { pron: "প্রিভিলেজড", pos: "Adjective", bn: "বিশেষ সুবিধা প্রাপ্ত / মর্যাদা সম্পন্ন", en: "Having special rights or immunities" },
-        "attendant": { pron: "অ্যাটেন্ডেন্ট", pos: "Noun", bn: "অনুগামী / সেবক", en: "A person who accompanies or attends" },
-        "spellbound": { pron: "স্পেলবাউন্ড", pos: "Adjective", bn: "মন্ত্রমুগ্ধ", en: "Holding complete attention as if by magic" },
-        "aquatic": { pron: "অ্যাকোয়াটিক", pos: "Adjective", bn: "জলজ", en: "Living or growing in or near water" },
-        "investigating": { pron: "ইনভেস্টিগেটিং", pos: "Verb/Participle", bn: "অনুসন্ধান করা", en: "Searching into or examining closely" },
-        "discrimination": { pron: "ডিসক্রিমিনেশন", pos: "Noun", bn: "ভেদাভেদ / বৈষম্য", en: "Unfair treatment of different categories of people" },
-        "officiating": { pron: "অফিসিয়েটিং", pos: "Adjective/Participle", bn: "ভারপ্রাপ্ত", en: "Acting in an official capacity temporarily" },
-        "sensitive": { pron: "সেনসিটিভ", pos: "Adjective", bn: "সংবেদনশীল / সূক্ষ্মগ্রাহী", en: "Able to measure very small changes or react to stimuli" },
-        "initiated": { pron: "ইনিশিয়েটেড", pos: "Verb", bn: "সূচনা করেছিলেন", en: "Set something in motion or started" },
-        "astronomy": { pron: "অ্যাস্ট্রোনমি", pos: "Noun", bn: "জ্যোতির্বিজ্ঞান", en: "Study of stars, planets and outer space" },
-        "library": { pron: "লাইব্রেরি", pos: "Noun", bn: "গ্রন্থাগার", en: "A place where books are kept" },
-        "garage": { pron: "গ্যারেজ", pos: "Noun", bn: "গাড়ির গ্যারেজ", en: "A place to keep cars" },
-        "psychology": { pron: "সাইকোলজি", pos: "Noun", bn: "মনোবিজ্ঞান", en: "Study of human mind and behavior" },
-        "orchard": { pron: "অর্চার্ড", pos: "Noun", bn: "ফলবাগান", en: "A garden of fruit trees" },
-        "cashier": { pron: "ক্যাশিয়ার", pos: "Noun", bn: "কষাধ্যক্ষ / কোষাধ্যক্ষ", en: "A person who handles cash" },
-        "chemist": { pron: "কেমিস্ট", pos: "Noun", bn: "রসায়নবিদ", en: "A person engaged in chemical research or science" },
-        "educator": { pron: "এডুকেটর", pos: "Noun", bn: "শিক্ষাবিদ", en: "A person who provides instruction or education" },
-        "synthesizing": { pron: "সিন্থেসাইজিং", pos: "Verb", bn: "সংশ্লেষণ করা / তৈরি করা", en: "Combining substance to form a compound" },
-        "misplaced": { pron: "মিসপ্লেসড", pos: "Adjective", bn: "ভুল জায়গায় চলে যাওয়া", en: "Incorrectly positioned or placed" },
-        "retrieving": { pron: "রিট্রিভিং", pos: "Verb", bn: "পুনরুদ্ধার করা", en: "Getting or bringing something back" }
+        "paved": { pron: "পেভড", pos: "Verb (Past)", bn: "পথ প্রশস্ত করেছিল / সুগম করেছিল", en: "Created a situation in which something can happen" },
+        "way": { pron: "ওয়ে", pos: "Noun", bn: "পথ / উপায়", en: "A method, manner, or route" },
+        "for": { pron: "ফর", pos: "Preposition", bn: "জন্য / নিমিত্ত", en: "With the purpose of or intending to reach" },
+        "future": { pron: "ফিউচার", pos: "Noun/Adjective", bn: "ভবিষ্যৎ", en: "A period of time following the moment of speaking" },
+        "research": { pron: "রিসার্চ", pos: "Noun/Verb", bn: "গবেষণা", en: "Systematic investigation into materials and sources" },
+        "all": { pron: "অল", pos: "Determiner", bn: "সমস্ত / সব", en: "The whole quantity or extent of" },
+        "over": { pron: "ওভার", pos: "Preposition", bn: "জুড়ে / উপরে", en: "Extending directly upward or across" },
+        "world": { pron: "ওয়ার্ল্ড", pos: "Noun", bn: "পৃথিবী / বিশ্ব", en: "The earth with all its countries and people" },
+        "born": { pron: "বর্ন", pos: "Verb/Adjective", bn: "জন্মগ্রহণ করেছিলেন", en: "Brought forth by birth" },
+        "on": { pron: "অন", pos: "Preposition", bn: "উপরে / নির্দিষ্ট তারিখে", en: "In contact with or supported by a surface" },
+        "november": { pron: "নভেম্বর", pos: "Proper Noun", bn: "নভেম্বর মাস", en: "The eleventh month of the year" },
+        "now": { pron: "নাউ", pos: "Adverb", bn: "এখন / বর্তমানে", en: "At the present time or moment" },
+        "diverse": { pron: "ডাইভার্স", pos: "Adjective", bn: "বহুমুখী / বিচিত্র / নানা প্রকার", en: "Showing a great deal of variety" },
+        "talents": { pron: "ট্যালেন্টস", pos: "Noun (Plural)", bn: "প্রতিভাসমূহ", en: "Natural aptitudes or abilities" },
+        "physicist": { pron: "ফিজিসিস্ট", pos: "Noun", bn: "পদার্থবিজ্ঞানী", en: "An expert in or student of physics" },
+        "biologist": { pron: "বায়োলজিস্ট", pos: "Noun", bn: "জীববিজ্ঞানী", en: "An expert in the branch of science that studies living organisms" },
+        "botanist": { pron: "বোটানিস্ট", pos: "Noun", bn: "উদ্ভিদবিজ্ঞানী", en: "An expert in or student of the scientific study of plants" },
+        "as": { pron: "অ্যাজ", pos: "Conjunction/Preposition", bn: "যেমন / হিসেবে", en: "Used to indicate role or function" },
+        "well": { pron: "ওয়েল", pos: "Adverb", bn: "ভালোভাবে / পাশাপাশি", en: "In a good or satisfactory manner" },
+        "writer": { pron: "রাইটার", pos: "Noun", bn: "লেখক", en: "A person who has written a particular text" },
+        "science-fiction": { pron: "সায়েন্স-ফিকশন", pos: "Noun", bn: "কল্পবিজ্ঞান", en: "Fiction based on imagined future scientific discoveries" },
+        "his": { pron: "হিজ", pos: "Possessive Pronoun", bn: "তাঁর / তার", en: "Belonging to a male person" },
+        "father": { pron: "ফাদার", pos: "Noun", bn: "বাবা / পিতা", en: "A male parent" },
+        "leader": { pron: "লিডার", pos: "Noun", bn: "নেতা", en: "The person who leads or commands a group" },
+        "of": { pron: "অফ", pos: "Preposition", bn: "এর / র", en: "Expressing the relationship between a part and a whole" },
+        "he": { pron: "হি", pos: "Pronoun", bn: "সে / তিনি", en: "Used to refer to a male person previously mentioned" },
+        "worked": { pron: "ওয়ার্কড", pos: "Verb (Past)", bn: "কাজ করতেন / চাকরি করতেন", en: "Engaged in physical or mental activity to achieve a result" },
+        "deputy": { pron: "ডেপুটি", pos: "Adjective/Noun", bn: "উপ / ডেপুটি", en: "A person appointed to undertake the duties of a superior" },
+        "magistrate": { pron: "ম্যাজিস্ট্রেট", pos: "Noun", bn: "বিচারক / ম্যাজিস্ট্রেট", en: "A civil officer who administers the law" },
+        "in": { pron: "ইন", pos: "Preposition", bn: "এ / তে / মধ্যে", en: "Expressing location" },
+        "places": { pron: "প্লেসেস", pos: "Noun (Plural)", bn: "স্থানসমূহ / জায়গাগুলি", en: "Particular positions, points, or areas" },
+        "education": { pron: "এডুকেশন", pos: "Noun", bn: "শিক্ষা", en: "The process of receiving or giving systematic instruction" },
+        "started": { pron: "স্টার্টেড", pos: "Verb (Past)", bn: "শুরু হয়েছিল", en: "Began or commenced" },
+        "vernacular": { pron: "ভার্নাকুলার", pos: "Adjective/Noun", bn: "দেশীয় ভাষা / মাতৃভাষা", en: "The language spoken by the ordinary people of a country" },
+        "school": { pron: "স্কুল", pos: "Noun", bn: "বিদ্যালয় / পাঠশালা", en: "An institution for educating children" },
+        "because": { pron: "বিকজ", pos: "Conjunction", bn: "কারণ", en: "For the reason that; since" },
+        "believed": { pron: "বিলীভড", pos: "Verb (Past)", bn: "বিশ্বাস করতেন", en: "Accepted something as true or real" },
+        "one": { pron: "ওয়ান", pos: "Pronoun/Number", bn: "একজন / কারো", en: "A single person or thing" },
+        "must": { pron: "মাস্ট", pos: "Modal Verb", bn: "অবশ্যই", en: "Expressing an imperative or obligation" },
+        "tongue": { pron: "টাং", pos: "Noun", bn: "ভাষা / জিব", en: "A particular language" },
+        "before": { pron: "বিফোর", pos: "Preposition/Conjunction", bn: "আগে / পূর্বে", en: "During the time preceding a particular event" },
+        "learning": { pron: "লার্নিং", pos: "Verb/Noun", bn: "শেখা / শিক্ষা গ্রহণ", en: "The acquisition of knowledge or skills" },
+        "other": { pron: "আদার", pos: "Adjective", bn: "অন্যান্য / অন্য", en: "Denoting additional or different things" },
+        "language": { pron: "ল্যাংগুয়েজ", pos: "Noun", bn: "ভাষা", en: "A system of communication used by a country or community" },
+        "besides": { pron: "বিসাইডস", pos: "Preposition/Adverb", bn: "তাছাড়াও / তাছাড়া", en: "In addition to; apart from" },
+        "should": { pron: "শুড", pos: "Modal Verb", bn: "উচিত", en: "Used to indicate obligation or duty" },
+        "own": { pron: "ওন", pos: "Adjective/Pronoun", bn: "নিজের / আপন", en: "Used to emphasize that something belongs to a person" },
+        "people": { pron: "পিপল", pos: "Noun", bn: "মানুষজন / জনগণ", en: "Human beings in general or of a particular group" },
+        "speaking": { pron: "স্পিকিং", pos: "Verb (Participle)", bn: "বক্তৃতা দেওয়ার সময় / বলছেন", en: "Saying something in order to convey information" },
+        "conference": { pron: "কনফারেন্স", pos: "Noun", bn: "সম্মেলন / সভা", en: "A formal meeting for discussion" },
+        "said": { pron: "সেড", pos: "Verb (Past)", bn: "বলেছিলেন", en: "Uttered words" },
+        "time": { pron: "টাইম", pos: "Noun", bn: "সময় / কাল", en: "The indefinite continued progress of existence" },
+        "sending": { pron: "সেন্ডিং", pos: "Verb (Gerund)", bn: "পাঠানো", en: "Causing to go or be taken to a particular destination" },
+        "children": { pron: "চিলড্রেন", pos: "Noun (Plural)", bn: "ছেলেমেয়েরা / শিশুরা", en: "Plural form of child" },
+        "english": { pron: "ইংলিশ", pos: "Proper Noun/Adjective", bn: "ইংরেজি ভাষা", en: "Relating to England or its language" },
+        "schools": { pron: "স্কুলস", pos: "Noun (Plural)", bn: "বিদ্যালয়গুলি", en: "Plural form of school" },
+        "privileged": { pron: "প্রিভিলেজড", pos: "Adjective", bn: "বিশেষ সুবিধাপ্রাপ্ত / মর্যাদাপূর্ণ", en: "Having special rights or immunities" },
+        "status": { pron: "স্ট্যাটাস", pos: "Noun", bn: "সামাজিক মর্যাদা", en: "Relative social or professional standing" },
+        "symbol": { pron: "সিম্বল", pos: "Noun", bn: "প্রতীক / চিহ্ন", en: "A thing that represents or stands for something else" },
+        "which": { pron: "হুইচ", pos: "Pronoun", bn: "যেটি / যা", en: "Used referring to something previously mentioned" },
+        "sent": { pron: "সেন্ট", pos: "Verb (Past)", bn: "পাঠানো হয়েছিল", en: "Dispatched to a destination" },
+        "son": { pron: "সান", pos: "Noun", bn: "পুত্র / ছেলে", en: "A male child in relation to his parents" },
+        "muslim": { pron: "মুসলিম", pos: "Noun/Adjective", bn: "মুসলিম / মুসলমান", en: "A follower of the religion of Islam" },
+        "attendant": { pron: "অ্যাটেন্ডেন্ট", pos: "Noun", bn: "অনুগামী / সেবক / কর্মচারী", en: "A person who accompanies or serves" },
+        "sat": { pron: "স্যাট", pos: "Verb (Past)", bn: "বসেছিল / বসতো", en: "Adopted or rested in a position in which body weight is supported" },
+        "my": { pron: "মাই", pos: "Possessive Pronoun", bn: "আমার", en: "Belonging to the speaker" },
+        "right": { pron: "রাইট", pos: "Adjective/Noun", bn: "ডান / সঠিক", en: "On, towards, or relating to the side of the body that is to the east when facing north" },
+        "side": { pron: "সাইড", pos: "Noun", bn: "পাশ / দিক", en: "A position to the left or right of an object" },
+        "fisherman": { pron: "ফিশারম্যান", pos: "Noun", bn: "জেলে / মৎস্যজীবী", en: "A person who catches fish" },
+        "left": { pron: "লেফট", pos: "Adjective/Noun", bn: "বাঁ / বাম দিক", en: "On or relating to the side of the body towards the west when facing north" },
+        "they": { pron: "দে", pos: "Pronoun", bn: "তারা / তারা সবাই", en: "Used to refer to two or more people or things" },
+        "were": { pron: "ওয়ার", pos: "Verb (Past)", bn: "ছিল / ছিলেন", en: "Second-person singular past and plural past of be" },
+        "playmates": { pron: "প্লেমেটস", pos: "Noun (Plural)", bn: "খেলার সাথীরা", en: "Friends with whom a child plays" },
+        "listened": { pron: "লিসনড", pos: "Verb (Past)", bn: "মনোযোগ দিয়ে শুনতাম / শুনেছিল", en: "Gave attention to sound" },
+        "spellbound": { pron: "স্পেলবাউন্ড", pos: "Adjective", bn: "মন্ত্রমুগ্ধ / বিভোর", en: "Holding complete attention as if by magic" },
+        "birds": { pron: "বার্ডস", pos: "Noun (Plural)", bn: "পাখিরা", en: "Plural form of bird" },
+        "animals": { pron: "অ্যানিম্যালস", pos: "Noun (Plural)", bn: "পশুপাখি / প্রাণীরা", en: "Living organisms that feed on organic matter" },
+        "aquatic": { pron: "অ্যাকোয়াটিক", pos: "Adjective", bn: "জলজ", en: "Relating to water; living or growing in water" },
+        "creatures": { pron: "ক্রিয়েচারস", pos: "Noun (Plural)", bn: "জীবজন্তু / প্রাণীসমূহ", en: "Animals or living beings" },
+        "perhaps": { pron: "পারহ্যাপস", pos: "Adverb", bn: "হয়তো / সম্ভবত", en: "Used to express uncertainty or possibility" },
+        "created": { pron: "ক্রিয়েটেড", pos: "Verb (Past)", bn: "সৃষ্টি করেছিল / গড়ে তুলেছিল", en: "Brought something into existence" },
+        "mind": { pron: "মাইন্ড", pos: "Noun", bn: "মন / মানসিকতা", en: "The element of a person that enables them to be aware of the world" },
+        "keen": { pron: "কীন", pos: "Adjective", bn: "প্রবল / তীব্র / গভীর", en: "Having or showing eagerness or enthusiasm" },
+        "interest": { pron: "ইন্টারেস্ট", pos: "Noun", bn: "আগ্রহ / কৌতূহল", en: "The feeling of wanting to know or learn about something" },
+        "investigating": { pron: "ইনভেস্টিগেটিং", pos: "Verb (Gerund)", bn: "অনুসন্ধান করা / খতিয়ে দেখা", en: "Carrying out a systematic inquiry" },
+        "workings": { pron: "ওয়ার্কিংস", pos: "Noun (Plural)", bn: "কার্যপ্রণালী / কাজকর্ম", en: "The manner in which something functions" },
+        "nature": { pron: "নেচার", pos: "Noun", bn: "প্রকৃতি", en: "The physical world and everything in it" },
+        "returned": { pron: "রিটার্নড", pos: "Verb (Past)", bn: "ফিরে আসতাম / ফিরেছিল", en: "Came or went back to a place" },
+        "home": { pron: "হোম", pos: "Noun", bn: "বাড়ি / গৃহ", en: "The place where one lives permanently" },
+        "accompanied": { pron: "অ্যাকাম্পানিড", pos: "Verb (Past)", bn: "সঙ্গী হয়ে / সঙ্গে নিয়ে", en: "Go somewhere with someone as a companion" },
+        "fellows": { pron: "ফেলোজ", pos: "Noun (Plural)", bn: "সঙ্গী / সহপাঠী", en: "Companions or associates" },
+        "mother": { pron: "মাদার", pos: "Noun", bn: "মা / মাতা", en: "A female parent" },
+        "welcomed": { pron: "ওয়েলকামড", pos: "Verb (Past)", bn: "স্বাগতম জানান / বরণ করে নিতেন", en: "Greeted someone arriving in a glad manner" },
+        "fed": { pron: "ফেড", pos: "Verb (Past)", bn: "খাওয়াতেন / খেতে দিতেন", en: "Gave food to" },
+        "us": { pron: "আস", pos: "Pronoun", bn: "আমাদের / আমাদেরকে", en: "Used by a speaker to refer to himself and others as the object of a verb" },
+        "without": { pron: "উইদাউট", pos: "Preposition", bn: "ছাড়া / ব্যতিরেকে", en: "In the absence of" },
+        "discrimination": { pron: "ডিসক্রিমিনেশন", pos: "Noun", bn: "বৈষম্য / ભેદાભેદ / পার্থক্য", en: "Unfair treatment of different categories of people" },
+        "it": { pron: "ইট", pos: "Pronoun", bn: "এটি / এটা", en: "Used to refer to a thing previously mentioned" },
+        "childhood": { pron: "চাইল্ডহুড", pos: "Noun", bn: "শৈশব / বাল্যকাল", en: "The state or period of being a child" },
+        "friendship": { pron: "ফ্রেন্ডশিপ", pos: "Noun", bn: "বন্ধুত্ব", en: "A relationship of mutual affection between people" },
+        "with": { pron: "উইথ", pos: "Preposition", bn: "সাথে / সঙ্গে", en: "Accompanied by or in the company of" },
+        "could": { pron: "কুড", pos: "Modal Verb (Past)", bn: "পারতাম / পেরেছিল", en: "Used to express past ability" },
+        "never": { pron: "নেভার", pos: "Adverb", bn: "কখনোই না / কোনোদিনই নয়", en: "At no time; not ever" },
+        "feel": { pron: "ফীল", pos: "Verb", bn: "অনুভব করা / মনে করা", en: "Be aware of through touch or emotion" },
+        "there": { pron: "দেয়ার", pos: "Adverb/Pronoun", bn: "সেখানে / এমন", en: "In, at, or to that place" },
+        "might": { pron: "মাঝটি", pos: "Modal Verb", bn: "পারে / হতে পারে", en: "Expressing possibility" },
+        "labelled": { pron: "লেবেল্ড", pos: "Verb (Past)", bn: "চিহ্নিত করা / তকমা দেওয়া", en: "Assigned to a category" },
+        "low-caste": { pron: "লো-কাস্ট", pos: "Adjective", bn: "নিম্নবর্ণের", en: "Belonging to a lower social class in traditional hierarchy" },
+        "realized": { pron: "রিয়ালাইজড", pos: "Verb (Past)", bn: "উপলব্ধি করেছিলাম / বুঝতে পেরেছিলাম", en: "Became fully aware of something" },
+        "existed": { pron: "এক্সিস্টেড", pos: "Verb (Past)", bn: "বিদ্যমান ছিল / অস্তিত্ব ছিল", en: "Had actual being or continued to be" },
+        "problem": { pron: "প্রবলেম", pos: "Noun", bn: "সমস্যা", en: "A matter or situation regarded as unwelcome" },
+        "common": { pron: "কমস", pos: "Adjective", bn: "সাধারণ / যৌথ", en: "Occurring, found, or done often; shared" },
+        "two": { pron: "টু", pos: "Number", bn: "দুই / দুটি", en: "The number 2" },
+        "communities": { pron: "কমিউনিটিজ", pos: "Noun (Plural)", bn: "সম্প্রদায়সমূহ", en: "Groups of people living in the same place or having a particular characteristic in common" },
+        "hindus": { pron: "হিন্দুজ", pos: "Noun (Plural)", bn: "হিন্দু সম্প্রদায়", en: "Followers of Hinduism" },
+        "muslims": { pron: "মুসলিমস", pos: "Noun (Plural)", bn: "মুসলিম সম্প্রদায়", en: "Followers of Islam" },
+        "joined": { pron: "জয়েন্ড", pos: "Verb (Past)", bn: "যোগদান করেছিলেন / ভর্তি হয়েছিলেন", en: "Became a member or entered" },
+        "hare": { pron: "হেয়ার", pos: "Proper Noun", bn: "হেয়ার (স্কুলের নাম)", en: "Famous historical school named after David Hare" },
+        "six": { pron: "সিক্স", pos: "Number", bn: "ছয় / ছ'টি", en: "The number 6" },
+        "years": { pron: "ইয়ার্স", pos: "Noun (Plural)", bn: "বছরগুলি", en: "Plural form of year" },
+        "later": { pron: "লেটার", pos: "Adverb", bn: "পরে / পরবর্তীতে", en: "At a time in the future or after a time already mentioned" },
+        "admitted": { pron: "অ্যাডমিটেড", pos: "Verb (Past)", bn: "ভর্তি হয়েছিলেন", en: "Allowed to enter or join an institution" },
+        "st.": { pron: "সেন্ট", pos: "Noun (Abbreviation)", bn: "সেন্ট / সাধু", en: "Abbreviation for Saint" },
+        "xavier’s": { pron: "জেভিয়ার্স", pos: "Proper Noun", bn: "জেভিয়ার্স", en: "Name of the institution" },
+        "passed": { pron: "পাসড", pos: "Verb (Past)", bn: "উত্তীর্ণ হয়েছিলেন", en: "Successfully completed an examination" },
+        "entrance": { pron: "এন্ট্রান্স", pos: "Noun/Adjective", bn: "প্রবেশিকা", en: "An examination taken to gain admission to a university" },
+        "examination": { pron: "এক্সামিনেশন", pos: "Noun", bn: "পরীক্ষা", en: "A formal test of a person's knowledge" },
+        "here": { pron: "হিয়ার", pos: "Adverb", bn: "এখানে", en: "In, at, or to this place" },
+        "came": { pron: "কেম", pos: "Verb (Past)", bn: "এসেছিলেন", en: "Moved towards a position" },
+        "contact": { pron: "কনট্যাক্ট", pos: "Noun", bn: "যোগাযোগ / পরিচয়", en: "State or condition of physical touching or meeting" },
+        "jesuit": { pron: "জেসুইট", pos: "Noun/Adjective", bn: "জেসুইট খ্রিস্টান পাদ্রি", en: "A member of the Society of Jesus" },
+        "eugene": { pron: "ইউজিন", pos: "Proper Noun", bn: "ইউজিন", en: "Given name" },
+        "lafont": { pron: "লাফন্ট", pos: "Proper Noun", bn: "লাফন্ট", en: "Surname of the famous teacher" },
+        "significant": { pron: "সিগনিফিক্যান্ট", pos: "Adjective", bn: "গুরুত্বপূর্ণ / তাৎপর্যপূর্ণ", en: "Sufficiently great or important to be worthy of attention" },
+        "role": { pron: "রোল", pos: "Noun", bn: "ভূমিকা", en: "The function assumed or part played by a person" },
+        "developing": { pron: "ডেভেলপিং", pos: "Verb (Gerund)", bn: "গড়ে তোলা / বিকাশ ঘটানো", en: "Growing or causing to grow and become more mature" },
+        "natural": { pron: "ন্যাচারাল", pos: "Adjective", bn: "প্রাকৃতিক / প্রাকৃতি", en: "Existing in or caused by nature" },
+        "science": { pron: "সাইন্স", pos: "Noun", bn: "বিজ্ঞান", en: "The systematic study of the structure and behaviour of the physical world" },
+        "went": { pron: "ওয়েন্ট", pos: "Verb (Past)", bn: "গিয়েছিলেন", en: "Moved or travelled to a place" },
+        "england": { pron: "ইংল্যান্ড", pos: "Proper Noun", bn: "ইংল্যান্ড", en: "A country that is part of the United Kingdom" },
+        "secured": { pron: "সিকিউরড", pos: "Verb (Past)", bn: "লাভ করেছিলেন / নিশ্চিত করেছিলেন", en: "Succeeded in obtaining" },
+        "admission": { pron: "অ্যাডমিশন", pos: "Noun", bn: "ভর্তি / প্রবেশাধিকার", en: "The process or fact of entering an institution" },
+        "christ": { pron: "ক্রাইস্ট", pos: "Proper Noun", bn: "ক্রাইস্ট (কলেজের নাম)", en: "College at Cambridge University" },
+        "cambridge": { pron: "কেমব্রিজ", pos: "Proper Noun", bn: "কেমব্রিজ", en: "University city in England" },
+        "study": { pron: "স্টাডি", pos: "Verb/Noun", bn: "পড়াশোনা করা / অধ্যয়ন", en: "Devote time and attention to gaining knowledge" },
+        "received": { pron: "রিসিভড", pos: "Verb (Past)", bn: "পেয়েছিলেন / গ্রহণ করেছিলেন", en: "Got or was given something" },
+        "tripos": { pron: "ট্রাইপস", pos: "Noun", bn: "কেমব্রিজ বিশ্ববিদ্যালয়ের ডিগ্রি", en: "The final honours degree examinations at Cambridge University" },
+        "university": { pron: "ইউনিভার্সিটি", pos: "Noun", bn: "বিশ্ববিদ্যালয়", en: "A high-level educational institution" },
+        "b. sc.": { pron: "বি. এসসি.", pos: "Noun", bn: "ব্যাচেলর অব সায়েন্স (বিজ্ঞান স্নাতক)", en: "Bachelor of Science degree" },
+        "degree": { pron: "ডিগ্রি", pos: "Noun", bn: "উপাধি / ডিগ্রি", en: "An academic rank conferred by a college or university" },
+        "london": { pron: "লন্ডন", pos: "Proper Noun", bn: "লন্ডন", en: "Capital city of the United Kingdom" },
+        "following": { pron: "ফলোয়িং", pos: "Adjective", bn: "পরবর্তী / পরের", en: "Coming immediately after" },
+        "officiating": { pron: "অফিসিয়েটিং", pos: "Adjective/Participle", bn: "ভারপ্রাপ্ত / অস্থায়ী", en: "Acting in an official capacity temporarily" },
+        "physics": { pron: "ফিজিক্স", pos: "Noun", bn: "পদার্থবিজ্ঞান", en: "The branch of science concerned with matter and energy" },
+        "but": { pron: "বাট", pos: "Conjunction", bn: "কিন্তু", en: "Used to introduce a phrase contrasting with what was already mentioned" },
+        "not": { pron: "নট", pos: "Adverb", bn: "না", en: "Used to express negation" },
+        "provided": { pron: "প্রোভাইডেড", pos: "Verb (Past)", bn: "সরবরাহ করা হয়েছিল / দেওয়া হয়েছিল", en: "Supplied or made available" },
+        "facilities": { pron: "ফ্যাসিলিটিজ", pos: "Noun (Plural)", bn: "সুযোগ-সুবিধা", en: "Space or equipment necessary for doing something" },
+        "offered": { pron: "অফার্ড", pos: "Verb (Past)", bn: "প্রস্তাব দেওয়া হয়েছিল", en: "Presented for acceptance or rejection" },
+        "lower": { pron: "লোয়ার", pos: "Adjective (Comparative)", bn: "কম / নিম্নতর", en: "Less high in status or amount" },
+        "salary": { pron: "স্যালারি", pos: "Noun", bn: "বেতন / মাইনে", en: "A fixed regular payment made by an employer to an employee" },
+        "european": { pron: "ইউরোপিয়ান", pos: "Adjective/Noun", bn: "ইউরোপীয়", en: "Relating to or characteristic of Europe" },
+        "colleagues": { pron: "কলিগস", pos: "Noun (Plural)", bn: "সহকর্মীরা", en: "People with whom one works" },
+        "self-respect": { pron: "সেলফ-রেসপেক্ট", pos: "Noun", bn: "আত্মসম্মান", en: "Pride and confidence in oneself" },
+        "national": { pron: "ন্যাশনাল", pos: "Adjective", bn: "জাতীয়", en: "Relating to a nation" },
+        "pride": { pron: "প্রাইড", pos: "Noun", bn: "গর্ব / অহংকার", en: "A feeling of deep pleasure or satisfaction derived from one's achievements" },
+        "therefore": { pron: "দেয়ারফোর", pos: "Adverb", bn: "অতএব / সেইজন্য", en: "For that reason; consequently" },
+        "sign": { pron: "সাইন", pos: "Noun", bn: "চিহ্ন / প্রতীক", en: "An indication of something" },
+        "protest": { pron: "প্রটেস্ট", pos: "Noun/Verb", bn: "প্রতিবাদ", en: "A statement or action expressing disapproval of something" },
+        "continued": { pron: "কন্টিনিউড", pos: "Verb (Past)", bn: "চালিয়ে গিয়েছিলেন", en: "Carried on with an activity without interruption" },
+        "teaching": { pron: "টিচিং", pos: "Noun/Verb", bn: "শিক্ষাদান / অধ্যাপনা", en: "The occupation or process of imparting knowledge" },
+        "assignment": { pron: "অ্যাসাইনমেন্ট", pos: "Noun", bn: "দায়িত্ব / কাজ", en: "A task or piece of work allocated to someone" },
+        "accepting": { pron: "অ্যাকসেপ্টিং", pos: "Verb (Gerund)", bn: "গ্রহণ করা", en: "Consent to receive something offered" },
+        "finally": { pron: "ফাইনালি", pos: "Adverb", bn: "অবশেষে / পরিশেষে", en: "After a long time or at the end of a series of events" },
+        "director": { pron: "ডাইরেক্টর", pos: "Noun", bn: "পরিচালক / অধিকর্তা", en: "A person who is in charge of an activity or department" },
+        "public": { pron: "পাবলিক", pos: "Adjective/Noun", bn: "জনগণ / সরকারি", en: "Of or concerning the people as a whole" },
+        "instruction": { pron: "ইনস্ট্রাকশন", pos: "Noun", bn: "শিক্ষা / নির্দেশ", en: "Detailed information telling how something should be done" },
+        "principal": { pron: "প্রিন্সিপাল", pos: "Noun", bn: "অধ্যক্ষ", en: "The head of a school or college" },
+        "permanent": { pron: "পারমানেন্ট", pos: "Adjective", bn: "স্থায়ী", en: "Lasting or intended to remain unchanged indefinitely" },
+        "post": { pron: "পোস্ট", pos: "Noun", bn: "পদ / চাকরি", en: "A piece of work or a job position" },
+        "invented": { pron: "ইনভেন্টেড", pos: "Verb (Past)", bn: "আবিষ্কার করেছিলেন", en: "Created or designed something that has not existed before" },
+        "several": { pron: "সেভারেল", pos: "Determiner", bn: "কয়েকটি / নানা", en: "More than two but not many" },
+        "sensitive": { pron: "সেনসিটিভ", pos: "Adjective", bn: "সংবেদনশীল / সূক্ষ্মগ্রাহী", en: "Quick to detect or respond to slight changes or signals" },
+        "instruments": { pron: "ইনস্ট্রুমেন্টস", pos: "Noun (Plural)", bn: "যন্ত্রপাতি", en: "Tools or implements used for precision work" },
+        "crescograph": { pron: "ক্রেসকোগ্রাফ", pos: "Proper Noun", bn: "ক্রেফকোগ্রাফ (যন্ত্রের নাম)", en: "A device for measuring growth in plants invented by J.C. Bose" },
+        "used": { pron: "ইউজড", pos: "Verb (Past)", bn: "ব্যবহৃত হয়", en: "Employed for a purpose" },
+        "measure": { pron: "মেজার", pos: "Verb", bn: "মাপা / পরিমাপ করা", en: "Ascertain the size, amount, or degree of something" },
+        "growth": { pron: "গ্রোথ", pos: "Noun", bn: "বৃদ্ধি / বিকাশ", en: "The process of increasing in physical size" },
+        "rate": { pron: "রেট", pos: "Noun", bn: "হার / গতি", en: "A measure, quantity, or frequency" },
+        "plants": { pron: "প্ল্যান্টস", pos: "Noun (Plural)", bn: "উদ্ভিদসমূহ / গাছপালা", en: "Living organisms of the vegetable kingdom" },
+        "experiments": { pron: "এক্সপেরিমেন্টস", pos: "Noun (Plural)", bn: "পরীক্ষা-নিরীক্ষা", en: "Scientific procedures undertaken to make a discovery" },
+        "showed": { pron: "শোড", pos: "Verb (Past)", bn: "দেখিয়েছিলেন / প্রমাণ করেছিলেন", en: "Demonstrated or allowed to be seen" },
+        "behave": { pron: "বিহেভ", pos: "Verb", bn: "আচরণ করা", en: "Act or conduct oneself in a specified way" },
+        "same": { pron: "সেম", pos: "Adjective", bn: "একই / অভিন্ন", en: "Identical; not different" },
+        "manner": { pron: "ম্যানার", pos: "Noun", bn: "পদ্ধতি / ধরণ / আচরণ", en: "A way in which something is done or happens" },
+        "human": { pron: "হিউম্যান", pos: "Adjective/Noun", bn: "মানব / মানুষ", en: "Relating to or characteristic of humankind" },
+        "beings": { pron: "বিয়িংস", pos: "Noun (Plural)", bn: "জীবকুল / সত্তা", en: "Living creatures" },
+        "although": { pron: "অলদো", pos: "Conjunction", bn: "যদিও", en: "In spite of the fact that; even though" },
+        "take": { pron: "টেক", pos: "Verb", bn: "নেওয়া / সময় লাগা", en: "Require or use up a amount of time" },
+        "longer": { pron: "লঙ্গার", pos: "Adjective (Comparative)", bn: "দীর্ঘতর সময়", en: "Measuring a greater duration" },
+        "respond": { pron: "রেসপন্ড", pos: "Verb", bn: "সাড়া দেওয়া / প্রতিক্রিয়া দেখানো", en: "Say or do something in reply or reaction" },
+        "proved": { pron: "প্রুভড", pos: "Verb (Past)", bn: "প্রমাণ করেছিলেন", en: "Demonstrated the truth or existence of something" },
+        "heat": { pron: "হীট", pos: "Noun", bn: "উত্তাপ / তাপ", en: "The quality of being hot; high temperature" },
+        "cold": { pron: "গোল্ড", pos: "Noun/Adjective", bn: "ঠান্ডা / শৈত্য", en: "Low temperature" },
+        "light": { pron: "লাইট", pos: "Noun", bn: "আলো", en: "Natural agent that stimulates sight" },
+        "noise": { pron: "নয়েজ", pos: "Noun", bn: "শব্দ / গোলমাল", en: "A sound, especially one that is loud or unpleasant" },
+        "external": { pron: "এক্সটার্নাল", pos: "Adjective", bn: "বাহ্যিক / বাইরের", en: "Belonging to or forming the outer surface or structure" },
+        "stimuli": { pron: "স্টিমিউলাই", pos: "Noun (Plural)", bn: "উদ্দীপনাগুলি", en: "Things that rouse activity or energy in organisms" },
+        "just": { pron: "জাস্ট", pos: "Adverb", bn: "ঠিক / একদম", en: "Exactly; completely" },
+        "injecting": { pron: "ইনজেক্টিং", pos: "Verb (Gerund)", bn: "ইনজেকশন দেওয়া / প্রবেশ করানো", en: "Introducing a substance into a body" },
+        "poison": { pron: "পয়জন", pos: "Noun", bn: "বিষ", en: "A substance that causes death or harm to organisms" },
+        "living": { pron: "লিভিং", pos: "Adjective", bn: "জীবন্ত / সজীব", en: "Alive; not dead" },
+        "react": { pron: "রিয়্যাক্ট", pos: "Verb", bn: "প্রতিক্রিয়া করা", en: "Act in response to something" },
+        "scientific": { pron: "সাইন্টিফিক", pos: "Adjective", bn: "বৈজ্ঞানিক", en: "Based on or characterized by the methods and principles of science" },
+        "initiated": { pron: "ইনিশিয়েটেড", pos: "Verb (Past)", bn: "সূচনা করেছিলেন / শুরু করেছিলেন", en: "Set something in motion; originated" },
+        "late": { pron: "লেট", pos: "Adjective", bn: "শেষের দিকের / শেষের", en: "Near the end of a period of time" },
+        "19th": { pron: "নাইনটিন্থ", pos: "Ordinal Number", bn: "ঊনবিংশ", en: "Constituting number 19 in a sequence" },
+        "century": { pron: "সেঞ্চুরি", pos: "Noun", bn: "শতাব্দী / শতক", en: "A period of one hundred years" },
+        "italian": { pron: "ইতালিয়ান", pos: "Adjective/Noun", bn: "ইতালীয়", en: "Relating to Italy" },
+        "scientist": { pron: "সাইন্টিস্ট", pos: "Noun", bn: "বিজ্ঞানী", en: "A person who is studying or has expert knowledge of science" },
+        "marconi": { pron: "মার্কোনি", pos: "Proper Noun", bn: "মার্কোনি", en: "Guglielmo Marconi, Italian inventor" },
+        "got": { pron: "গট", pos: "Verb (Past)", bn: "পেয়েছিলেন", en: "Obtained or received" },
+        "patent": { pron: "প্যাটেন্ট", pos: "Noun", bn: "একচ্ছত্র পেটেন্ট অধিকার", en: "Government authority conferring the sole right to exclude others from making an invention" },
+        "patency": { pron: "প্যাটেন্সি", pos: "Noun", bn: "পেটেন্ট অধিকার", en: "Official right to be the only person to make an invention" },
+        "wireless": { pron: "ওয়ারলেস", pos: "Adjective/Noun", bn: "বেতার / তারহীন", en: "Broadcasting or telegraphy using radio signals" },
+        "telegraphy": { pron: "টেলিগ্রাফি", pos: "Noun", bn: "তারবার্তা প্রেরণ বিদ্যা", en: "Transmission of textual messages over distance without wires" },
+        "remember": { pron: "রিমেম্বার", pos: "Verb", bn: "মনে রাখা / স্মরণ করা", en: "Have in or be able to bring to one's mind" },
+        "lines": { pron: "লাইনস", pos: "Noun (Plural)", bn: "ধারা / দিক", en: "Course of action or thought" },
+        "happened": { pron: "হ্যাফেন্ড", pos: "Verb (Past)", bn: "ঘটেছিল", en: "Took place; occurred" },
+        "much": { pron: "মাচ", pos: "Adverb", bn: "অনেক", en: "To a great degree" },
+        "earlier": { pron: "আর্লিয়ার", pos: "Adverb (Comparative)", bn: "আরও আগে / পূর্বে", en: "Before the expected or usual time" },
+        "instead": { pron: "ইনস্টেড", pos: "Adverb", bn: "পরিবর্তে / বদলে", en: "As an alternative or substitute" },
+        "looking": { pron: "লুকিং", pos: "Verb (Participle)", bn: "খোঁজা / তাকানো", en: "Searching for or directed gaze" },
+        "commercial": { pron: "কমার্শিয়াল", pos: "Adjective", bn: "বাণিজ্যিক", en: "Concerned with or engaged in commerce or profit" },
+        "benefit": { pron: "বেনেফিট", pos: "Noun", bn: "লাভ / সুবিধা", en: "An advantage or profit gained from something" },
+        "inventions": { pron: "ইনভেনশনস", pos: "Noun (Plural)", bn: "আবিষ্কারগুলি", en: "Things that have been invented" },
+        "allow": { pron: "অ্যালাউ", pos: "Verb", bn: "অনুমতি দেওয়া / সুযোগ দেওয়া", en: "Give the necessary time or opportunity for" },
+        "others": { pron: "আদার্স", pos: "Noun (Plural)", bn: "অন্যান্যরা / অন্যান্য ব্যক্তিরা", en: "Other people" },
+        "advance": { pron: "অ্যাডভান্স", pos: "Verb", bn: "এগিয়ে নেওয়া / অগ্রগতি করা", en: "Move forward in a purposeful way" },
+        "further": { pron: "ফার্দার", pos: "Adverb", bn: "আরও এগিয়ে / আরও দূরে", en: "To a greater degree or extent" },
+        "however": { pron: "হাউএভার", pos: "Adverb", bn: "যাইহোক / তবে", en: "Used to introduce a statement that contrasts with a previous one" },
+        "place": { pron: "প্লেস", pos: "Noun", bn: "স্থান / জায়গা", en: "A particular position or point" },
+        "re-evaluated": { pron: "রি-ইভালুয়েটেড", pos: "Verb (Past)", bn: "পুনর্বিবেচিত হয়েছে", en: "Evaluated again or differently" },
+        "great": { pron: "গ্রেট", pos: "Adjective", bn: "মহান / বিরাট", en: "Of an extent, amount, or intensity considerably above the normal" },
+        "eventually": { pron: "ইভেনচুয়ালি", pos: "Adverb", bn: "অবশেষে / শেষপর্যন্ত", en: "In the end, especially after a long time" },
+        "crowned": { pron: "ক্রাউনড", pos: "Verb (Past)", bn: "ভূষিত হয়েছিলেন / মুকুট পরানো হয়েছিল", en: "Conferred honour or glory upon" },
+        "glory": { pron: "গ্লোরি", pos: "Noun", bn: "গৌরব / মহিমা", en: "High honour or praise won by notable achievements" },
+        "awarded": { pron: "অ্যাওয়ার্ডেড", pos: "Verb (Past)", bn: "পুরস্কৃত / ভূষিত হয়েছিলেন", en: "Given as a token of merit" },
+        "knighthood": { pron: "নাইটহুড", pos: "Noun", bn: "নাইট উপাধি", en: "The title, rank, or status of a knight awarded by British royalty" },
+        "government": { pron: "গভর্নমেন্ট", pos: "Noun", bn: "সরকার", en: "The governing body of a nation" },
+        "conferred": { pron: "কনফার্ড", pos: "Verb (Past)", bn: "প্রদান করা হয়েছিল", en: "Granted or bestowed an honour" },
+        "many": { pron: "ম্যানি", pos: "Determiner", bn: "অনেক / প্রচুর", en: "A large number of" },
+        "awards": { pron: "অ্যাওয়ার্ডস", pos: "Noun (Plural)", bn: "পুরস্কারসমূহ", en: "Prizes or honours given in recognition of achievements" },
+        "fellow": { pron: "ফেলো", pos: "Noun", bn: "ফেলো (সম্মানজনক সদস্য পদ)", en: "A member of a learned society" },
+        "royal": { pron: "রয়েল", pos: "Adjective", bn: "রাজকীয়", en: "Having the status of a king or queen or a member of their family" },
+        "society": { pron: "সোসাইটি", pos: "Noun", bn: "সমাজ / সমিতি", en: "An organization or club formed for a particular purpose" },
+        "companion": { pron: "কম্প্যানিয়ন", pos: "Noun", bn: "সঙ্গী / উপাধি বিশেষ", en: "A member of the lowest grade of certain orders of knighthood" },
+        "order": { pron: "অর্ডার", pos: "Noun", bn: "অর্ডার / সমাজ", en: "An institution or honour" },
+        "empire": { pron: "এম্পায়ার", pos: "Noun", bn: "সাম্রাজ্য", en: "An extensive group of states or countries under a single supreme authority" },
+        "etc.": { pron: "ইত্যাদি", pos: "Abbreviation", bn: "ইত্যাদি", en: "Et cetera; and other similar things" },
+        "needless": { pron: "নীডলেস", pos: "Adjective", bn: "অনাবশ্যক / অপ্রয়োজনীয়", en: "Unnecessary; avoidable" },
+        "say": { pron: "সে", pos: "Verb", bn: "বলা", en: "Utter words so as to convey information" },
+        "greatest": { pron: "গ্রেটেস্ট", pos: "Adjective (Superlative)", bn: "সর্বশ্রেষ্ঠ / মহানতম", en: "Of the highest quality or degree" },
+        "scientists": { pron: "সাইন্টিস্টস", pos: "Noun (Plural)", bn: "বিজ্ঞানীবৃন্দ", en: "Plural form of scientist" },
+        "ever": { pron: "এভার", pos: "Adverb", bn: "কখনো / আজ পর্যন্ত", en: "At any time" },
+        "country": { pron: "কান্ট্রি", pos: "Noun", bn: "দেশ", en: "A nation with its own government" },
+        "sir": { pron: "স্যার", pos: "Proper Noun/Title", bn: "স্যার (সম্মানসূচক উপাধি)", en: "Title used before the first name of a knight" },
+        "wrote": { pron: "রোট", pos: "Verb (Past)", bn: "লিখেছিলেন", en: "Composed text" },
+        "books": { pron: "বুকস", pos: "Noun (Plural)", bn: "বইগুলি", en: "Plural form of book" },
+        "published": { pron: "পাবলিশড", pos: "Verb (Past)", bn: "প্রকাশ করেছিলেন", en: "Prepared and issued for public sale or read" },
+        "papers": { pron: "পেপারস", pos: "Noun (Plural)", bn: "গবেষণাপত্রগুলি", en: "Academic or scientific essays" },
+        "leading": { pron: "লিডিং", pos: "Adjective", bn: "প্রধান / অগ্রগণ্য", en: "Most important or prominent" },
+        "journals": { pron: "জার্নালস", pos: "Noun (Plural)", bn: "সাময়িকী / বিজ্ঞান পত্রিকা", en: "Newspapers or magazines dealing with a particular subject" },
+        "famous": { pron: "ফেমাস", pos: "Adjective", bn: "বিখ্যাত", en: "Known about by many people" },
+        "response": { pron: "রেসপন্স", pos: "Noun", bn: "সাড়া / প্রতিক্রিয়া", en: "A reaction to something" },
+        "nervous": { pron: "নার্ভাস", pos: "Adjective", bn: "স্নায়বিক / স্নায়ু সংক্রান্ত", en: "Relating to the nerves" },
+        "mechanism": { pron: "মেকানিজম", pos: "Noun", bn: "কার্যপ্রণালী / কৌশল", en: "A system of parts working together in a machine or organism" },
+        "major": { pron: "মেজর", pos: "Adjective", bn: "প্রধান / গুরুত্বপূর্ণ", en: "Important, serious, or significant" },
+        "fact": { pron: "ফ্যাক্ট", pos: "Noun", bn: "সত্যি / ঘটনা", en: "A thing that is known or proved to be true" },
+        "first": { pron: "ফার্স্ট", pos: "Ordinal Number", bn: "প্রথম", en: "Coming before all others in time or order" },
+        "bangla": { pron: "বাংলা", pos: "Proper Noun", bn: "বাংলা ভাষা", en: "The Bengali language" },
+        "founded": { pron: "ফাউন্ডেড", pos: "Verb (Past)", bn: "প্রতিষ্ঠা করেছিলেন", en: "Established or originated an institution" },
+        "institute": { pron: "ইনস্টিটিউট", pos: "Noun", bn: "সংস্থা / প্রতিষ্ঠান", en: "An organization having a particular purpose" },
+        "donated": { pron: "ডোনেটেড", pos: "Verb (Past)", bn: "দান করেছিলেন", en: "Gave money or property for a good cause" },
+        "nation": { pron: "নেশন", pos: "Noun", bn: "জাতি / দেশ", en: "A large body of people united by common descent or culture" },
+        "breathed": { pron: "ব্রেথড", pos: "Verb (Past)", bn: "নিশ্বাস ত্যাগ করেছিলেন", en: "Took air into the lungs and expelled it" },
+        "last": { pron: "লাস্ট", pos: "Adjective", bn: "শেষ", en: "Coming after all others in time or order" },
+        "request": { pron: "রিকোয়েস্ট", pos: "Noun/Verb", bn: "অনুরোধ", en: "An act of asking politely for something" },
+        "misplaced": { pron: "মিসপ্লেসড", pos: "Adjective", bn: "ভুল জায়গায় রাখা / হারিয়ে যাওয়া", en: "Incorrectly positioned" },
+        "delivered": { pron: "ডেলিভার্ড", pos: "Verb (Past)", bn: "পৌঁছে দেওয়া হয়েছিল", en: "Brought and handed over to proper recipient" },
+        "wrong": { pron: "রং", pos: "Adjective", bn: "ভুল", en: "Incorrect or mistaken" },
+        "address": { pron: "অ্যাড্রেস", pos: "Noun", bn: "ঠিকানা", en: "The particulars of the place where someone lives" },
+        "postmaster": { pron: "পোস্টমাস্টার", pos: "Noun", bn: "পোস্টমাস্টার / ডাকধ্যক্ষ", en: "The person in charge of a post office" },
+        "office": { pron: "অফিস", pos: "Noun", bn: "কার্যালয় / অফিস", en: "A room or building used for business or administration" },
+        "subject": { pron: "সাবজেক্ট", pos: "Noun", bn: "বিষয়", en: "The matter being discussed" },
+        "retrieve": { pron: "রিট্রিভ", pos: "Verb", bn: "উদ্ধার করা / ফেরত আনা", en: "Get or bring something back" },
+        "inform": { pron: "ইনফর্ম", pos: "Verb", bn: "জানানো / অবহিত করা", en: "Give someone facts or information" },
+        "wrongfully": { pron: "রংফুলি", pos: "Adverb", bn: "অন্যায়ভাবে / ভুলবশত", en: "In an unjust or incorrect manner" },
+        "neighbour’s": { pron: "নেইবার্স", pos: "Noun (Possessive)", bn: "প্রতিবেশীর", en: "Belonging to a person living next door" },
+        "postman": { pron: "পোস্টম্যান", pos: "Noun", bn: "ডিয়াকপিয়ন / ডাকপিয়ন", en: "A person who delivers letters" },
+        "oversight": { pron: "ওভারসাইট", pos: "Noun", bn: "ভুল / অসাবধানতা", en: "An unintentional failure to notice or do something" },
+        "kindly": { pron: "কাইন্ডলি", pos: "Adverb", bn: "দয়া করে", en: "In a kind or polite manner" },
+        "matter": { pron: "ম্যাটার", pos: "Noun", bn: "বিষয় / ঘটনা", en: "A subject or situation under consideration" },
+        "arrange": { pron: "অ্যারেঞ্জ", pos: "Verb", bn: "ব্যবস্থা করা", en: "Organize or plan" },
+        "hand": { pron: "হ্যান্ড", pos: "Verb/Noun", bn: "হাতে তুলে দেওয়া / হাত", en: "Pass or give something using hands" },
+        "earliest": { pron: "আর্লিয়েস্ট", pos: "Adjective (Superlative)", bn: "যত দ্রুত সম্ভব", en: "At the soonest possible time" },
+        "convenience": { pron: "কনভেনিয়েন্স", pos: "Noun", bn: "সুবিধা", en: "The state of being able to proceed without difficulty" },
+        "details": { pron: "ডিটেইলস", pos: "Noun (Plural)", bn: "বিবরণসমূহ", en: "Individual items or particulars" },
+        "given": { pron: "গাইভেন", pos: "Verb (Past Participle)", bn: "প্রদত্ত / দেওয়া হয়েছে", en: "Specified or stated" },
+        "below": { pron: "বিলৌ", pos: "Adverb/Preposition", bn: "নিচে", en: "At a lower level or position" },
+        "faithfully": { pron: "ফেইথফুলি", pos: "Adverb", bn: "বিশ্বস্ততার সাথে", en: "In a loyal and reliable manner" }
     };
 
-    // Helper phonetic rules for generating pronunciation on the fly
+    // Phonetic generator for unlisted words
     function generatePronunciation(word) {
-        word = word.toLowerCase();
-        if (dictionary[word]) return dictionary[word].pron;
-        
-        let p = word;
+        let p = word.toLowerCase();
         p = p.replace(/tion/g, "শন")
              .replace(/sion/g, "শন")
              .replace(/ing/g, "িং")
@@ -723,23 +1047,20 @@
 
     function guessPos(word) {
         word = word.toLowerCase();
-        if (dictionary[word]) return dictionary[word].pos;
         if (word.endsWith('ly')) return "Adverb";
         if (word.endsWith('ing') || word.endsWith('ed')) return "Verb";
-        if (word.endsWith('able') || word.endsWith('ful') || word.endsWith('ous')) return "Adjective";
-        if (word.endsWith('tion') || word.endsWith('ment') || word.endsWith('ness')) return "Noun";
-        return "Noun / Word";
+        if (word.endsWith('able') || word.endsWith('ful') || word.endsWith('ous') || word.endsWith('ive')) return "Adjective";
+        if (word.endsWith('tion') || word.endsWith('ment') || word.endsWith('ness') || word.endsWith('ity')) return "Noun";
+        return "Word";
     }
 
     function guessMeaning(word) {
-        word = word.toLowerCase();
-        if (dictionary[word]) return dictionary[word].bn;
-        return "শব্দটির সাধারণ বাংলা অর্থ: " + word;
+        return "অর্থ: " + word;
     }
 
-    // Auto-wrap every text node word into clickable span
+    // Wrap every word into clickable span dynamically
     function wrapWordsInElement(element) {
-        const ignoreTags = ['SCRIPT', 'STYLE', 'BUTTON', 'INPUT', 'TABLE', 'TH'];
+        const ignoreTags = ['SCRIPT', 'STYLE', 'BUTTON', 'INPUT', 'TH'];
         if (ignoreTags.includes(element.tagName)) return;
 
         let child = element.firstChild;
@@ -749,7 +1070,6 @@
                 let text = child.nodeValue;
                 if (text.trim().length > 0) {
                     let fragment = document.createDocumentFragment();
-                    // Split text into words while keeping punctuation
                     let tokens = text.split(/(\s+|[.,!?;:()"'“”‘’\[\]])/);
                     tokens.forEach(token => {
                         if (/^[A-Za-z0-9'-]+$/.test(token) && token.length > 0) {
@@ -770,16 +1090,14 @@
         }
     }
 
-    // Wrap words across the entire document
     document.addEventListener("DOMContentLoaded", () => {
-        const targets = document.querySelectorAll('.passage-text, .activity-card, .word-nest');
+        const targets = document.querySelectorAll('.passage-text, .word-nest');
         targets.forEach(target => wrapWordsInElement(target));
 
-        // Add event delegation for word clicks
         document.body.addEventListener('click', (e) => {
             if (e.target.classList.contains('w')) {
                 const wordText = e.target.textContent.trim().replace(/[^a-zA-Z]/g, "");
-                if(wordText) showWordModal(wordText);
+                if (wordText) showWordModal(wordText);
             }
         });
     });
@@ -792,7 +1110,7 @@
         const pos = dictEntry ? dictEntry.pos : guessPos(key);
         const pron = dictEntry ? dictEntry.pron : generatePronunciation(key);
         const bn = dictEntry ? dictEntry.bn : guessMeaning(key);
-        const en = dictEntry ? dictEntry.en : "Vocabulary item from the text/exercise";
+        const en = dictEntry ? dictEntry.en : "Word from English text or exercise";
 
         document.getElementById('mWord').textContent = displayWord;
         document.getElementById('mPos').textContent = pos;
@@ -807,19 +1125,16 @@
         document.getElementById('dictModal').classList.remove('active');
     }
 
-    // Toggle Answer visibility
     function toggleAnswer(id) {
         const box = document.getElementById(id);
         if (box.classList.contains('show')) {
             box.classList.remove('show');
         } else {
             box.classList.add('show');
-            // Ensure words inside newly opened answer boxes are also wrapped
             wrapWordsInElement(box);
         }
     }
 
-    // Close modal when clicking outside box
     window.onclick = function(event) {
         const modal = document.getElementById('dictModal');
         if (event.target === modal) {
